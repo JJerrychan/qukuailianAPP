@@ -14,10 +14,10 @@ public class Company extends LoginUser{
     private String cRoad;       //所在路
     private String cLocation;   //门牌
     private String cInfo;       //简介
-    private String[] cPicture;  //轮播图
+    private String[] cPicture;  //轮播图地址
     private String BankCardNumber;  //银行卡号码
 
-    public Company(int id) {
+    public Company(String id) {
         super(id);
     }
 

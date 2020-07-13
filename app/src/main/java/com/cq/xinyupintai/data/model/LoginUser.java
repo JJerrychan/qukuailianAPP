@@ -3,19 +3,20 @@ package com.cq.xinyupintai.data.model;
     所有可登录用户父类
  */
 public class LoginUser {
-    private int id;
+    private String id;
     private String Username;
     private String Password;
+    private String PhoneNum;
 
-    public LoginUser(int id) {
+    public LoginUser(String id) {
         this.id = id;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -33,5 +34,13 @@ public class LoginUser {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public String getPhoneNum() {
+        return PhoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        PhoneNum = phoneNum;
     }
 }
