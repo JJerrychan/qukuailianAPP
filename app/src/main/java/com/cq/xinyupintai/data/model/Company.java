@@ -1,9 +1,8 @@
 package com.cq.xinyupintai.data.model;
 /*
-    公司对象
+    公司信息
  */
-public class Company {
-    private int cid;            //唯一id
+public class Company extends LoginUser{
     private String cName;       //公司名称
     private String cCode;       //组织代码
     private String cContract;   //联系人
@@ -16,17 +15,10 @@ public class Company {
     private String cLocation;   //门牌
     private String cInfo;       //简介
     private String[] cPicture;  //轮播图
+    private String BankCardNumber;  //银行卡号码
 
-    public Company(int cid) {
-        this.cid = cid;
-    }
-
-    public int getCid() {
-        return cid;
-    }
-
-    public void setCid(int cid) {
-        this.cid = cid;
+    public Company(int id) {
+        super(id);
     }
 
     public String getcName() {
@@ -123,5 +115,13 @@ public class Company {
 
     public void setcPicture(String[] cPicture) {
         this.cPicture = cPicture;
+    }
+
+    public String getBankCardNumber() {
+        return BankCardNumber;
+    }
+
+    public void setBankCardNumber(String bankCardNumber) {
+        BankCardNumber = bankCardNumber;
     }
 }
