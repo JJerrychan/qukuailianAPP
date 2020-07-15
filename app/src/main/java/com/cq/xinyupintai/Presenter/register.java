@@ -1,4 +1,4 @@
-package com.cq.xinyupintai.view;
+package com.cq.xinyupintai.Presenter;
 
 import androidx.appcompat.app.AppCompatActivity;
 

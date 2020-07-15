@@ -1,4 +1,4 @@
-package com.cq.xinyupintai.view;
+package com.cq.xinyupintai.Presenter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,13 +12,9 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import com.cq.xinyupintai.R;
 
