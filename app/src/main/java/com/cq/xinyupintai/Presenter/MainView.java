@@ -12,6 +12,7 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,7 +20,7 @@ import android.widget.TextView;
 import com.cq.xinyupintai.R;
 
 public class MainView extends AppCompatActivity implements View.OnClickListener {
-
+    private Button login;
     private TextView tv1;
     private EditText editinput;
     private EditText etpassword;
@@ -55,6 +56,15 @@ public class MainView extends AppCompatActivity implements View.OnClickListener 
         initListerner();
 
 
+        //登录按钮给我暂时用来测试
+        login = findViewById(R.id.bt);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainView.this, EditCard.class);
+                startActivity(intent);
+            }
+        });
         tv1 = findViewById(R.id.newuser);
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override

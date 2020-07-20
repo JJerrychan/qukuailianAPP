@@ -61,6 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_marginTop="10dp"
             android:paddingLeft="10dp"
@@ -86,6 +87,104 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:text="面值(元)："
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:background="@drawable/border"
+                android:hint="输入整数  "
+                android:padding="5dp"
+                android:textSize="13sp" />
+
+            <TextView
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:text="消费折扣(%)："
+                android:layout_width="96dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_margin="5dp"
+                android:background="@drawable/border"
+                android:padding="5dp"
+                android:textSize="13sp"
+                android:hint="两位整数"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:gravity="right"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:text="联盟卡："
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+
+            <RadioGroup
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+
+                <RadioButton
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="是" />
+
+                <RadioButton
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="否" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/category_button"
+            android:text="类别"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:background="@drawable/border"
+            android:id="@+id/wheel"
+            android:text="test"
+            android:layout_width="100dp"
+            android:layout_height="50dp"/>
+
+        <com.contrarywind.view.WheelView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 
