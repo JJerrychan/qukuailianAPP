@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
     tools:context=".Presenter.EditCard">
@@ -30,8 +30,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:layout_marginBottom="0dp"
         android:background="#FFFFFF"
         android:orientation="vertical">
 
@@ -53,13 +54,13 @@
                 android:layout_height="wrap_content" />
 
             <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
-                android:padding="5dp"
-                android:textSize="13sp"
                 android:hint="请输入预付卡的自编号"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:padding="5dp"
+                android:textSize="13sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -175,16 +176,58 @@
             android:text="类别"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
         <TextView
             android:background="@drawable/border"
             android:id="@+id/wheel"
             android:text="test"
             android:layout_width="100dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp" />
 
-        <com.contrarywind.view.WheelView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <EditText
+            android:padding="5dp"
+            android:gravity="start"
+            android:textSize="5pt"
+            android:hint="请输入该卡的相关说明"
+            android:background="@drawable/border"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
+        <GridLayout
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:layout_width="match_parent"
+            android:layout_height="130dp">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@android:drawable/ic_input_add" />
+
+            <TextView
+                android:text="请选择预付卡的封面图片"
+                android:layout_gravity="bottom" />
+        </GridLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+
+                android:text="提交"
+                android:layout_height="50dp"
+                android:layout_width="50dp" />
+
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                android:text="取消"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+        </TableLayout>
     </LinearLayout>
 
 
