@@ -1,0 +1,286 @@
+[
+  {
+    "name": "丽人",
+    "catID": 11,
+    "Categories2": [
+      {
+        "name": "美容",
+        "catID": 1111
+      },
+      {
+        "name": "美发",
+        "catID": 1112
+      },
+      {
+        "name": "美体",
+        "catID": 1113
+      },
+      {
+        "name": "美甲",
+        "catID": 1114
+      }
+    ]
+  },
+  {
+    "name": "汽车",
+    "catID": 12,
+    "Categories2": [
+      {
+        "name": "修理",
+        "catID": 1211
+      },
+      {
+        "name": "保养",
+        "catID": 1212
+      },
+      {
+        "name": "洗车",
+        "catID": 1213
+      },
+      {
+        "name": "加油",
+        "catID": 1214
+      }
+    ]
+  },
+  {
+    "name": "保健",
+    "catID": 13,
+    "Categories2": [
+      {
+        "name": "洗浴",
+        "catID": 1311,
+        "Categories3": [
+          {
+            "name": "洗浴",
+            "catID": 131111
+          },
+          {
+            "name": "足浴",
+            "catID": 131112
+          },
+          {
+            "name": "汗蒸",
+            "catID": 131113
+          }
+        ]
+      },
+      {
+        "name": "推拿",
+        "catID": 1312
+      },
+      {
+        "name": "理疗",
+        "catID": 1313
+      }
+    ]
+  },
+  {
+    "name": "健身",
+    "catID": 14,
+    "Categories2": [
+      {
+        "name": "健身",
+        "catID": 1411
+      },
+      {
+        "name": "瑜伽",
+        "catID": 1412
+      },
+      {
+        "name": "游泳",
+        "catID": 1413
+      },
+      {
+        "name": "打球",
+        "catID": 1414,
+        "Categories3": [
+          {
+            "name": "羽毛球",
+            "catID": 141411
+          },
+          {
+            "name": "乒乓球",
+            "catID": 141412
+          },
+          {
+            "name": "保龄球",
+            "catID": 141413
+          },
+          {
+            "name": "台球",
+            "catID": 141414
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "零售",
+    "catID": 15,
+    "Categories2": [
+      {
+        "name": "药店",
+        "catID": 1511
+      },
+      {
+        "name": "商超",
+        "catID": 1512
+      },
+      {
+        "name": "水果",
+        "catID": 1513
+      },
+      {
+        "name": "生鲜",
+        "catID": 1514
+      }
+    ]
+  },
+  {
+    "name": "娱乐",
+    "catID": 16,
+    "Categories2": [
+      {
+        "name": "棋牌",
+        "catID": 1611
+      },
+      {
+        "name": "网吧",
+        "catID": 1612
+      },
+      {
+        "name": "卡拉OK",
+        "catID": 1613
+      },
+      {
+        "name": "轰趴",
+        "catID": 1614
+      },
+      {
+        "name": "电影",
+        "catID": 1615
+      },
+      {
+        "name": "儿童乐园",
+        "catID": 1616
+      }
+    ]
+  },
+  {
+    "name": "休闲",
+    "catID": 17,
+    "Categories2": [
+      {
+        "name": "会所",
+        "catID": 1711
+      },
+      {
+        "name": "餐饮",
+        "catID": 1712,
+        "Categories3": [
+          {
+            "name": "饭店",
+            "catID": 171211
+          },
+          {
+            "name": "酒吧",
+            "catID": 171212
+          },
+          {
+            "name": "茶馆",
+            "catID": 171213
+          },
+          {
+            "name": "咖啡",
+            "catID": 171214
+          }
+        ]
+      },
+      {
+        "name": "酒店",
+        "catID": 1713
+      },
+      {
+        "name": "旅游",
+        "catID": 1714
+      }
+    ]
+  },
+  {
+    "name": "教育",
+    "catID": 18,
+    "Categories2": [
+      {
+        "name": "早教",
+        "catID": 1811
+      },
+      {
+        "name": "教育培训",
+        "catID": 1812,
+        "Categories3": [
+          {
+            "name": "中小学辅导",
+            "catID": 181211
+          },
+          {
+            "name": "外语",
+            "catID": 181212
+          },
+          {
+            "name": "艺术",
+            "catID": 181213
+          },
+          {
+            "name": "职业",
+            "catID": 181214
+          },
+          {
+            "name": "训练",
+            "catID": 181215
+          }
+        ]
+      },
+      {
+        "name": "家教",
+        "catID": 1813
+      },
+      {
+        "name": "托教",
+        "catID": 1814,
+        "Categories3": [
+          {
+            "name": "幼托",
+            "catID": 181411
+          },
+          {
+            "name": "午托",
+            "catID": 181412
+          },
+          {
+            "name": "晚托",
+            "catID": 181413
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "生活",
+    "catID": 19,
+    "Categories2": [
+      {
+        "name": "家政",
+        "catID": 1911
+      },
+      {
+        "name": "托老",
+        "catID": 1912
+      },
+      {
+        "name": "洗衣",
+        "catID": 1913
+      }
+    ]
+  }
+]

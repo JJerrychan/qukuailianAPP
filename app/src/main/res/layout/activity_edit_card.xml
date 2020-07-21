@@ -54,6 +54,7 @@
                 android:layout_height="wrap_content" />
 
             <EditText
+                android:id="@+id/self_num_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -80,13 +81,14 @@
                 android:layout_height="wrap_content" />
 
             <EditText
+                android:id="@+id/card_name_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
-                android:padding="5dp"
-                android:textSize="13sp"
                 android:hint="请输入您给预付卡起的名称"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:padding="5dp"
+                android:textSize="13sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -107,6 +109,7 @@
                 android:layout_height="wrap_content" />
 
             <EditText
+                android:id="@+id/value_edittext"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -125,13 +128,14 @@
                 android:layout_height="wrap_content" />
 
             <EditText
+                android:id="@+id/discount_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:background="@drawable/border"
-                android:padding="5dp"
-                android:textSize="13sp"
                 android:hint="两位整数"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:padding="5dp"
+                android:textSize="13sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -151,38 +155,63 @@
                 android:layout_height="wrap_content" />
 
             <RadioGroup
-                android:orientation="horizontal"
+                android:id="@+id/isunion_radiogroup"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
 
                 <RadioButton
-                    android:textColor="@color/colorPrimary"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="是" />
+                    android:text="是"
+                    android:textColor="@color/colorPrimary" />
 
                 <RadioButton
-                    android:textColor="@color/colorPrimary"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="否" />
+                    android:text="否"
+                    android:textColor="@color/colorPrimary" />
             </RadioGroup>
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/category_button"
-            android:text="类别"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <TextView
-            android:background="@drawable/border"
-            android:id="@+id/wheel"
-            android:text="test"
-            android:layout_width="100dp"
-            android:layout_height="50dp" />
+            <TextView
+                android:layout_marginLeft="42dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textColor="@color/colorPrimary"
+                android:text="类 别:"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/category_textview"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/border"
+                android:padding="8dp"
+                android:textSize="10sp" />
+
+            <ImageView
+                android:layout_gravity="center"
+                android:id="@+id/category_btn"
+                android:layout_marginLeft="-50dp"
+                android:background="@android:drawable/arrow_down_float"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+        </LinearLayout>
 
         <EditText
             android:padding="5dp"
