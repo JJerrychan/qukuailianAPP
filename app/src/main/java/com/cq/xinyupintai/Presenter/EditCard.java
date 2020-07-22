@@ -33,6 +33,7 @@ public class EditCard extends AppCompatActivity {
     private static boolean isLoaded = false;
     private TextView categoryTv;
 
+
     //添加列表
     private ArrayList<CategoriesBean> options1Items = new ArrayList<>();
     private ArrayList<ArrayList<String>> options2Items = new ArrayList<>();
@@ -56,7 +57,7 @@ public class EditCard extends AppCompatActivity {
                     }
                     break;
                 case MSG_LOAD_SUCCESS:
-                    Toast.makeText(EditCard.this, "Parse Succeed", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(EditCard.this, "Parse Succeed", Toast.LENGTH_SHORT).show();
                     isLoaded = true;
                     break;
                 case MSG_LOAD_FAILED:
@@ -71,7 +72,20 @@ public class EditCard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_card);
         mHandler.sendEmptyMessage(MSG_LOAD_DATA);
-
+        Button backButton=findViewById(R.id.back_button);
+        Button cancelButton=findViewById(R.id.cancel_button);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         ImageView categoryIv = findViewById(R.id.category_btn);
         categoryIv.setOnClickListener(new View.OnClickListener() {
