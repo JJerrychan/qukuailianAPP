@@ -109,12 +109,12 @@ public class MainView extends AppCompatActivity implements View.OnClickListener 
 
         );
         //登陆操作
-        ensure=findViewById(R.id.bt);
+        ensure = findViewById(R.id.bt);
         ensure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent=new Intent(MainView.this,BossActivity.class);
-                    startActivity(intent);
+                Intent intent = new Intent(MainView.this, BossActivity.class);
+                startActivity(intent);
             }
         });
     }
