@@ -47,24 +47,24 @@
                     android:id="@+id/id"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:gravity="center"
                     android:text="登录账号"
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#6495ED" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@id/id"
-                    android:background="@null"
+                    android:textSize="16sp"
                     android:hint="  请输入用于登录系统的用户名"
-                    android:textSize="16sp" />
+                    android:background="@null"
+                    android:layout_toRightOf="@id/id"
+                    android:layout_marginLeft="20dp" />
 
                 <View
+                    android:layout_below="@id/id"
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
-                    android:layout_below="@id/id"
                     android:background="@android:color/darker_gray" />
 
 
@@ -78,22 +78,22 @@
                     android:layout_height="40sp"
                     android:gravity="center"
                     android:text="登录密码"
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textColor="#6495ED" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@+id/pwd"
-                    android:background="@null"
                     android:hint="  请输入密码"
-                    android:textSize="16sp" />
+                    android:background="@null"
+                    android:layout_toRightOf="@+id/pwd"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="20dp" />
 
                 <View
+                    android:layout_below="@id/pwd"
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
-                    android:layout_below="@id/pwd"
                     android:background="@android:color/darker_gray" />
 
 
@@ -107,22 +107,22 @@
                     android:layout_height="40sp"
                     android:gravity="center"
                     android:text="确认密码"
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textColor="#6495ED" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@+id/pwd2"
-                    android:background="@null"
                     android:hint="  请再一次输入相同的密码"
-                    android:textSize="16sp" />
+                    android:background="@null"
+                    android:layout_toRightOf="@+id/pwd2"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="20dp" />
 
                 <View
+                    android:layout_below="@id/pwd2"
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
-                    android:layout_below="@id/pwd2"
                     android:background="@android:color/darker_gray" />
 
             </RelativeLayout>
@@ -135,22 +135,22 @@
                     android:layout_height="40sp"
                     android:gravity="center"
                     android:text="公司名称"
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textColor="#6495ED" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@+id/company"
-                    android:background="@null"
                     android:hint="  请输入在工商登记的公司名称"
-                    android:textSize="16sp" />
+                    android:background="@null"
+                    android:textSize="16sp"
+                    android:layout_toRightOf="@+id/company"
+                    android:layout_marginLeft="20dp" />
 
                 <View
+                    android:layout_below="@id/company"
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
-                    android:layout_below="@id/company"
                     android:background="@android:color/darker_gray" />
 
 
@@ -164,22 +164,22 @@
                     android:layout_height="40sp"
                     android:gravity="center"
                     android:text="组织代码"
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textColor="#6495ED" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@id/companyid"
-                    android:background="@null"
                     android:hint="  请输入在工商登记的公司名称"
-                    android:textSize="16sp" />
+                    android:background="@null"
+                    android:layout_toRightOf="@id/companyid"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="20dp" />
 
                 <View
+                    android:layout_below="@id/companyid"
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
-                    android:layout_below="@id/companyid"
                     android:background="@android:color/darker_gray" />
 
 
@@ -191,24 +191,24 @@
                     android:id="@+id/bankid"
                     android:layout_width="wrap_content"
                     android:layout_height="40sp"
-                    android:gravity="center"
                     android:text="银行账号"
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:textColor="#6495ED" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@+id/bankid"
-                    android:background="@null"
                     android:hint="  请输入用于结账收款的银行账号"
-                    android:textSize="16sp" />
+                    android:background="@null"
+                    android:layout_toRightOf="@+id/bankid"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="20dp" />
 
                 <View
+                    android:layout_below="@id/bankid"
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
-                    android:layout_below="@id/bankid"
                     android:background="@android:color/darker_gray" />
 
 
@@ -222,22 +222,22 @@
                     android:layout_height="40dp"
                     android:gravity="center"
                     android:text="联系人"
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textColor="#6495ED" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="39dp"
-                    android:layout_toRightOf="@+id/people"
-                    android:background="@null"
                     android:hint="  请输入公司联系人姓名"
-                    android:textSize="16sp" />
+                    android:background="@null"
+                    android:layout_toRightOf="@+id/people"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="39dp" />
 
                 <View
+                    android:layout_below="@id/people"
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
-                    android:layout_below="@id/people"
                     android:background="@android:color/darker_gray" />
 
 
@@ -251,23 +251,23 @@
                     android:layout_height="40dp"
                     android:gravity="center"
                     android:text="手机号码"
-                    android:textColor="#6495ED"
+                    android:textSize="18sp"
 
-                    android:textSize="18sp" />
+                    android:textColor="#6495ED" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@+id/iphone"
-                    android:background="@null"
                     android:hint="  请输入公司业务手机号码"
-                    android:textSize="16sp" />
+                    android:background="@null"
+                    android:layout_toRightOf="@+id/iphone"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="20dp" />
 
                 <View
+                    android:layout_below="@id/iphone"
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
-                    android:layout_below="@id/iphone"
                     android:background="@android:color/darker_gray" />
 
 
@@ -282,38 +282,38 @@
                     android:layout_height="40dp"
                     android:gravity="center"
                     android:text="电子邮箱"
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textColor="#6495ED" />
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/email"
-                    android:background="@null"
                     android:hint="  请输入公司电子邮箱"
-                    android:textSize="16sp" />
+                    android:background="@null"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="20dp" />
 
                 <View
+                    android:layout_below="@id/email"
                     android:layout_width="match_parent"
                     android:layout_height="1dip"
-                    android:layout_below="@id/email"
                     android:background="@android:color/darker_gray" />
 
             </RelativeLayout>
 
 
             <LinearLayout
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="所 在 省   "
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textColor="#6495ED" />
 
                 <Spinner
                     android:id="@+id/province"
@@ -323,10 +323,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
                     android:text=" 城 市  "
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#6495ED" />
 
                 <Spinner
                     android:id="@+id/city"
@@ -338,16 +338,16 @@
 
 
             <LinearLayout
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="所 在 区   "
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textColor="#6495ED" />
 
                 <Spinner
                     android:id="@+id/district"
@@ -357,10 +357,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
                     android:text=" 街 道  "
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#6495ED" />
 
                 <Spinner
                     android:id="@+id/street"
@@ -371,16 +371,16 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="所 在 路   "
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textColor="#6495ED" />
 
                 <Spinner
                     android:id="@+id/way"
@@ -390,10 +390,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
                     android:text=" 门 牌  "
-                    android:textColor="#6495ED"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#6495ED" />
 
                 <Spinner
                     android:id="@+id/doorplate"
@@ -404,18 +404,18 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_marginTop="35dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp">
+                android:layout_width="wrap_content">
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button"
-                    android:gravity="center"
                     android:text="注册"
+                    android:textSize="20sp"
+                    android:gravity="center"
                     android:textColor="#ffffff"
-                    android:textSize="20sp" />
+                    android:background="@drawable/button" />
 
             </LinearLayout>
 

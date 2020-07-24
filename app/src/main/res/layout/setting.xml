@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,7 +16,7 @@
         android:padding="20dp"
         android:textColor="#ffffff"
         android:gravity="center"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true" />
 
 
     <RelativeLayout
@@ -37,7 +36,6 @@
             android:text="    营业员账户"
             android:textColor="#000000"
             android:textSize="18sp" />
-
 
     </RelativeLayout>
 
@@ -59,13 +57,10 @@
             android:layout_marginTop="3dp"
             android:textSize="17sp"
             android:drawableLeft="@mipmap/document"
-            android:padding="10dp"/>
-
-
+            android:padding="10dp" />
 
 
     </RelativeLayout>
-
 
 
     <RelativeLayout
@@ -73,8 +68,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff">
-
-
 
 
         <TextView
@@ -110,48 +103,48 @@
     </RelativeLayout>
 
 
-
     <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/tv_4">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_4">
 
-            <TextView
-                android:id="@+id/tv_5"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="   安全与隐私\n   修改密码、密码提示问题、接受推荐"
-                android:gravity="center|left"
-                android:textColor="#000000"
-                android:drawableLeft="@mipmap/security"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="3dp"
-                android:textSize="17sp" />
-
-
-        </RelativeLayout>
-
-    <RelativeLayout
+        <TextView
+            android:id="@+id/tv_5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:layout_marginTop="10dp">
-            <TextView
-                android:id="@+id/tv_6"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="   公司实名认证"
-                android:gravity="center|left"
-                android:drawableLeft="@mipmap/company"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="3dp"
-                android:textSize="18sp"
-                android:textColor="#000000"/>
+            android:layout_height="60dp"
+            android:text="   安全与隐私\n   修改密码、密码提示问题、接受推荐"
+            android:gravity="center|left"
+            android:textColor="#000000"
+            android:drawableLeft="@mipmap/security"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:textSize="17sp" />
 
 
-        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_6"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="   公司实名认证"
+            android:gravity="center|left"
+            android:drawableLeft="@mipmap/company"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:textSize="18sp"
+            android:textColor="#000000" />
+
+
+    </RelativeLayout>
 
 
     <RelativeLayout
@@ -184,7 +177,7 @@
         android:gravity="center"
         android:layout_marginTop="40dp"
         android:textColor="#ffffff"
-        android:background="@drawable/button"/>
+        android:background="@drawable/button" />
 
 
     <Button
@@ -196,8 +189,7 @@
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:textColor="#ffffff"
-        android:background="@drawable/button"/>
-
+        android:background="@drawable/button" />
 
 
 </LinearLayout>
