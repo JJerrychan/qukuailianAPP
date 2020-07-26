@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:id="@+id/rc_settle"/>
+        <LinearLayout
+            android:id="@+id/LL_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/rc_settle"
+            android:layout_margin="20dp">
+            <Button
+                android:id="@+id/bd_settle_add"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="30dp"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:background="#FFEB3B"
+                android:textSize="30px"
+                app:cornerRadius="40dp"
+                android:text="添加项目"/>
+            <TextView
+                android:id="@+id/tv_settle_1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="合计消费（元）"
+                android:layout_gravity="center"/>
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:id="@+id/tf_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:labelText="消费金额">
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/ed_settle_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/LL_1"
+        android:layout_margin="20dp">
+        <TextView
+            android:id="@+id/tv_settle_2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="顾客手机号："/>
+        <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+            android:id="@+id/tf_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:labelText="消费金额">
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/ed_settle_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+    </LinearLayout>
+</RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
