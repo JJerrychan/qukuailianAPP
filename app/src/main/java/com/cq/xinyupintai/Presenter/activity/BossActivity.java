@@ -54,9 +54,9 @@ public class BossActivity extends AppCompatActivity {
         vp=findViewById(R.id.vp);
         bnv=findViewById(R.id.bottomNavigation);
         vp.setAdapter(new PageAdapter(BossActivity.this,getSupportFragmentManager()));
-        bnv.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void  onNavigationItemReselected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int menuId = menuItem.getItemId();
                 switch (menuId) {
                     case R.id.message:
@@ -69,6 +69,7 @@ public class BossActivity extends AppCompatActivity {
                          vp.setCurrentItem(2);
                         break;
                 }
+                return false;
             }
         });
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
