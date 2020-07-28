@@ -35,5 +35,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.qmuiteam:qmui:2.0.0-alpha10'
     implementation 'com.contrarywind:Android-PickerView:4.1.9'
+    implementation 'liji.library.dev:citypickerview:0.7.0'
+    implementation 'com.smarttop:jd-address:1.1.0'
 
 }

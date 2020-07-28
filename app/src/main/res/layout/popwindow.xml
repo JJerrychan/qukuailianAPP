@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="25dp"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/popwindow_bg"
+        android:padding="1dp">
+
+        <Button
+            android:id="@+id/btpop1"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="通过手机短信登录"
+            android:textSize="20sp"
+            android:textColor="#6495ED"
+            android:gravity="center"
+            android:background="@drawable/buttonjump"/>
+
+
+        <Button
+            android:id="@+id/btpop2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="找回密码"
+            android:textColor="#6495ED"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:background="@drawable/buttonjump"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btpop3"
+        android:layout_height="65dp"
+        android:layout_width="match_parent"
+        android:text="取消"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="#6495ED"
+        android:gravity="center"
+        android:background="@drawable/popwindow_bg"/>
+
+</LinearLayout>
