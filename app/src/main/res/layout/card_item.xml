@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView app:contentPadding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_margin="10dp"
+    android:layout_gravity="center_horizontal"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp"
+    app:cardMaxElevation="10dp"
+    app:cardBackgroundColor="#FFFFE0"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/card_img"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/border"
+            android:layout_width="100dp"
+            android:layout_height="80dp" />
+
+        <RelativeLayout
+            android:layout_marginLeft="20dp"
+            android:layout_toEndOf="@+id/card_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_alignParentStart="true"
+                android:text="卡编号/预付卡名"
+                android:id="@+id/num_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_marginTop="5dp"
+                android:text="状态：发布"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/category"
+                android:layout_marginTop="5dp"
+                android:text="类别"
+                android:layout_below="@+id/num_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/values"
+                android:layout_marginBottom="5dp"
+                android:text="面值："
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/discount"
+                android:layout_marginBottom="5dp"
+                android:text="消费折扣："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
