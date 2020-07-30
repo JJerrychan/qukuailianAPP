@@ -40,9 +40,9 @@ class messagePageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return boss_message_fragment.newInstance(position);
-            case 1:
                 return User_eva_fragment.newInstance(position);
+            case 1:
+                return boss_message_fragment.newInstance(position);
             default:
                 return null;
         }
@@ -78,17 +78,17 @@ public class boss_home_fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         TabLayout tabLayout1=view.findViewById(R.id.tb_boss_1);
         ViewPager viewPager = view.findViewById(R.id.vp_boss_1);
-/*
+
         RecyclerView rcvBossHome=view.findViewById(R.id.rc_boss_1);
         rcvBossHome.setLayoutManager (new GridLayoutManager(getActivity(),3));
         rcvBossHome.setAdapter(new RcBossHomeAdapter(getActivity(),TextInit()));
- */
+
         //设置adapter
         viewPager.setAdapter(new messagePageAdapter(getChildFragmentManager(), tabLayout1.getTabCount()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout1));
         tabLayout1.setupWithViewPager(viewPager);
     }
-/*
+
     private List<String> TextInit() {
         List<String> text = new ArrayList<>();
         text.add("收入");
@@ -96,7 +96,7 @@ public class boss_home_fragment extends Fragment {
         text.add("售出数");
         return text;
     }
- */
+
 
 
     public static boss_home_fragment newInstance(int index) {

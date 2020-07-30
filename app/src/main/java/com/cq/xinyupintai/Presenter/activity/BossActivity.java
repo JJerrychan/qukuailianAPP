@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 
+import com.cq.xinyupintai.Presenter.Adapter.PageAdapter;
 import com.cq.xinyupintai.Presenter.fragment.boss_home_fragment;
 
 import com.cq.xinyupintai.Presenter.fragment.setting_fragment;
@@ -22,27 +23,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-class PageAdapter extends FragmentPagerAdapter {
-    private Context mContext;
-    final ArrayList<Fragment> fgLists=new ArrayList<>(2);
-    public PageAdapter(Context context, FragmentManager fm) {
-        super(fm);
-        mContext = context;
-        fgLists.add(new boss_home_fragment());
-        fgLists.add(new settle_fragment());
-        fgLists.add(new setting_fragment());
-    }
-
-    @Override
-    public Fragment getItem(int position) {
-        return fgLists.get(position);
-    }
-
-    @Override
-    public int getCount() {
-        return 3;
-    }
-}
 
 public class BossActivity extends AppCompatActivity {
     private ViewPager vp;
