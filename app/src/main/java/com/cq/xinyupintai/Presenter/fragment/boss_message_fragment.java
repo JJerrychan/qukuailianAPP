@@ -1,15 +1,19 @@
 package com.cq.xinyupintai.Presenter.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cq.xinyupintai.Presenter.activity.EvaActivity;
+import com.cq.xinyupintai.Presenter.activity.MainView;
 import com.cq.xinyupintai.R;
 
 public class boss_message_fragment extends Fragment {

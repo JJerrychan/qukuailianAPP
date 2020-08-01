@@ -1,13 +1,16 @@
 package com.cq.xinyupintai.Presenter.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cq.xinyupintai.Presenter.activity.EvaActivity;
 import com.cq.xinyupintai.R;
 
 import java.util.List;
@@ -33,6 +36,14 @@ public class UserEvaAdapter extends RecyclerView.Adapter<UserEvaAdapter.TextHold
         //后续获取数据需要修改此处
         String mtext = texts.get(position);
         holder.setEvaMText(mtext);
+        //不知道怎么点
+        holder.require.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mContext,EvaActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -46,6 +57,7 @@ public class UserEvaAdapter extends RecyclerView.Adapter<UserEvaAdapter.TextHold
         private TextView star;
         private TextView name;
         private TextView eva;
+        private Button require;
         public TextHolder(View itemView) {
             super(itemView);
 
@@ -54,6 +66,7 @@ public class UserEvaAdapter extends RecyclerView.Adapter<UserEvaAdapter.TextHold
             star =  itemView.findViewById(R.id.tv_item_star);
             name=itemView.findViewById(R.id.tv_item_name);
             eva=itemView.findViewById(R.id.tv_item_eva);
+            require=itemView.findViewById(R.id.bt_request);
         }
         public void setTimeText(String timeText){
             time.setText(timeText);

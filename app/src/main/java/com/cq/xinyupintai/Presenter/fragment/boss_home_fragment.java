@@ -18,53 +18,12 @@ import androidx.viewpager.widget.ViewPager;
 
 
 import com.cq.xinyupintai.Presenter.Adapter.RcBossHomeAdapter;
+import com.cq.xinyupintai.Presenter.Adapter.messagePageAdapter;
 import com.cq.xinyupintai.R;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-class messagePageAdapter extends FragmentPagerAdapter {
-    private Context mContext;
-    public messagePageAdapter(Context context, FragmentManager fm) {
-        super(fm);
-        mContext = context;
-    }
-
-    public messagePageAdapter(FragmentManager supportFragmentManager, int tabCount) {
-        super(supportFragmentManager, tabCount);
-    }
-
-    @Override
-    public Fragment getItem(int position) {
-        switch (position) {
-            case 0:
-                return User_eva_fragment.newInstance(position);
-            case 1:
-                return boss_message_fragment.newInstance(position);
-            default:
-                return null;
-        }
-    }
-
-    @Override
-    public int getCount() {
-        return 2;
-    }
-
-    public CharSequence getPageTitle(int position){
-        switch (position){
-            case 0:
-                return "顾客评价";
-            case 1:
-                return "消息";
-            default:
-                return null;
-        }
-    }
-
-}
 
 public class boss_home_fragment extends Fragment {
     @Nullable
