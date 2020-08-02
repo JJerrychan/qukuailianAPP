@@ -19,16 +19,33 @@
         android:layout_below="@+id/mtv_require"
         android:text="确认"
         app:rb_backgroundColor="@color/xui_btn_green_normal_color"
+        android:layout_marginTop="16dp"
         app:rb_radius="15dp"
-        android:textColor="#E3F2FD"/>
+        android:textColor="#E3F2FD"
+        android:enabled="true"/>
     <com.xuexiang.xui.widget.button.roundbutton.RoundButton
         android:id="@+id/rb_require_cancel"
         style="@style/RoundButton.Auto"
         android:layout_below="@+id/mtv_require"
         android:layout_toRightOf="@+id/rb_require_ensure"
         android:text="取消"
+        android:layout_marginTop="16dp"
         android:layout_marginLeft="15dp"
         app:rb_backgroundColor="@color/xui_btn_green_normal_color"
         app:rb_radius="15dp"
         android:textColor="#E3F2FD"/>
+
+    <com.xuexiang.xui.widget.button.shadowbutton.ShadowButton
+        android:id="@+id/rb_require_clean"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/mtv_require"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@mipmap/clean"
+        app:sb_radius="20dp"/>
+
 </RelativeLayout>
