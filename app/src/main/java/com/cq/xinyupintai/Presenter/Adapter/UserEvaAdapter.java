@@ -36,7 +36,6 @@ public class UserEvaAdapter extends RecyclerView.Adapter<UserEvaAdapter.TextHold
         //后续获取数据需要修改此处
         String mtext = texts.get(position);
         holder.setEvaMText(mtext);
-        //不知道怎么点
         holder.require.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

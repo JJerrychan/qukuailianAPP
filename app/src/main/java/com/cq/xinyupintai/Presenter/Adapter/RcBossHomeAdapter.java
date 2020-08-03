@@ -1,6 +1,7 @@
 package com.cq.xinyupintai.Presenter.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cq.xinyupintai.Presenter.activity.StatisticsActivity;
 import com.cq.xinyupintai.R;
 
 import java.util.List;
@@ -32,6 +34,13 @@ public class RcBossHomeAdapter extends RecyclerView.Adapter<RcBossHomeAdapter.Te
         String mtext = texts.get(position);
         holder.setnameText(mtext);
         holder.setdataText("数据测试");
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mContext, StatisticsActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
