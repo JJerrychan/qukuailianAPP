@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.cq.xinyupintai.Presenter.Adapter.MyAdapter;
 import com.cq.xinyupintai.R;
+import com.xuexiang.xui.XUI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class ClosingStockActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        XUI.initTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_closing_stock);
         Cs_rcv =  findViewById(R.id.rc_item);

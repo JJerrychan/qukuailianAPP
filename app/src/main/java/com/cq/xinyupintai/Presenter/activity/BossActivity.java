@@ -20,6 +20,7 @@ import com.cq.xinyupintai.Presenter.fragment.setting_fragment;
 import com.cq.xinyupintai.Presenter.fragment.settle_fragment;
 import com.cq.xinyupintai.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.xuexiang.xui.XUI;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,7 @@ public class BossActivity extends AppCompatActivity {
     private BottomNavigationView bnv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        XUI.initTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boss);
         vp=findViewById(R.id.vp);
