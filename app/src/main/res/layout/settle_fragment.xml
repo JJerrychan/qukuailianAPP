@@ -23,9 +23,8 @@
                 android:layout_gravity="center"
                 android:clickable="true"
                 android:gravity="center"
-                android:background="#FFEB3B"
+                android:background="@drawable/flatbutton"
                 android:textSize="30px"
-                app:cornerRadius="40dp"
                 android:text="添加项目"/>
             <TextView
                 android:id="@+id/tv_settle_1"
@@ -33,16 +32,19 @@
                 android:layout_height="wrap_content"
                 android:text="合计消费（元）"
                 android:layout_gravity="center"/>
-            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-                android:id="@+id/tf_money"
+            <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:labelText="消费金额">
-                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-                    android:id="@+id/ed_settle_money"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+                android:hint="消费金额"
+                app:met_floatingLabel="normal"
+                app:met_floatingLabelTextColor="#B2EBF2"
+                app:met_floatingLabelText="金额"
+                android:id="@+id/ed_settle_money"
+                android:enabled="true"
+                app:met_underlineColor="#00796B"
+                app:met_floatingLabelAnimating="true"
+                android:textColor="#212121"/>
+
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,16 +58,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="顾客手机号："/>
-        <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-            android:id="@+id/tf_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:labelText="消费金额">
-        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+        <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
             android:id="@+id/ed_settle_phone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+            android:layout_height="wrap_content"
+            android:hint="请输入顾客手机号"
+            app:met_floatingLabel="normal"
+            app:met_floatingLabelTextColor="#B2EBF2"
+            app:met_floatingLabelText="手机号"
+            android:enabled="true"
+            app:met_underlineColor="#00796B"
+            app:met_floatingLabelAnimating="true"
+            android:textColor="#212121"/>
     </LinearLayout>
 </RelativeLayout>
 

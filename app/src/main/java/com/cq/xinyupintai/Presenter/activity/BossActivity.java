@@ -14,12 +14,15 @@ import android.view.MenuItem;
 
 
 import com.cq.xinyupintai.Presenter.fragment.Card_Fragment;
+import com.cq.xinyupintai.Presenter.Adapter.PageAdapter;
+import com.cq.xinyupintai.Presenter.fragment.Card_Fragment;
 import com.cq.xinyupintai.Presenter.fragment.boss_home_fragment;
 
 import com.cq.xinyupintai.Presenter.fragment.setting_fragment;
 import com.cq.xinyupintai.Presenter.fragment.settle_fragment;
 import com.cq.xinyupintai.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.xuexiang.xui.XUI;
 
 import java.util.ArrayList;
 
@@ -53,6 +56,7 @@ public class BossActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        XUI.initTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boss);
         vp = findViewById(R.id.vp);

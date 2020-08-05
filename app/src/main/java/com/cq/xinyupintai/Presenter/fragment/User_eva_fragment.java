@@ -8,8 +8,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.cq.xinyupintai.Presenter.Adapter.UserEvaAdapter;
 import com.cq.xinyupintai.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class User_eva_fragment extends Fragment {
     @Nullable
@@ -21,8 +27,22 @@ public class User_eva_fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        RecyclerView rcBossMessage=view.findViewById(R.id.rc_boss_2);
+        rcBossMessage.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rcBossMessage.setAdapter(new UserEvaAdapter(getActivity(),TextInit()));
     }
+    //测试用后期删除
+    private List<String> TextInit() {
+        List<String> text = new ArrayList<>();
 
+        for(int i=0; i<20; ++i){
+            String itemText = "";
+            itemText = "测试第" + (i+1) + "条评语";
+            text.add(itemText);
+        }
+
+        return text;
+    }
     public static User_eva_fragment newInstance(int index) {
         User_eva_fragment fragment = new User_eva_fragment();
         Bundle bundle = new Bundle();
