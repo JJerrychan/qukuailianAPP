@@ -1,6 +1,10 @@
 package com.cq.xinyupintai.Presenter.activity;
 
 
+import android.content.Context;
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -8,16 +12,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.view.MenuItem;
-
-
-import com.cq.xinyupintai.Presenter.fragment.Card_Fragment;
-import com.cq.xinyupintai.Presenter.Adapter.PageAdapter;
 import com.cq.xinyupintai.Presenter.fragment.Card_Fragment;
 import com.cq.xinyupintai.Presenter.fragment.boss_home_fragment;
-
 import com.cq.xinyupintai.Presenter.fragment.setting_fragment;
 import com.cq.xinyupintai.Presenter.fragment.settle_fragment;
 import com.cq.xinyupintai.R;
