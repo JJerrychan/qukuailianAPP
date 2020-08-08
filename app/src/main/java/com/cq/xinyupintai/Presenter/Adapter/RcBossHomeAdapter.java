@@ -33,7 +33,7 @@ public class RcBossHomeAdapter extends RecyclerView.Adapter<RcBossHomeAdapter.Te
         //后续获取数据需要修改此处
         String mtext = texts.get(position);
         holder.setnameText(mtext);
-        holder.setdataText("数据测试");
+        holder.setdataText("1000");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
