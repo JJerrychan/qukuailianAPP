@@ -66,7 +66,7 @@ public class BossActivity extends AppCompatActivity {
                         vp.setCurrentItem(1);
                         break;
                     case R.id.setting:
-                         vp.setCurrentItem(2);
+                        vp.setCurrentItem(2);
                         break;
                 }
                 return false;

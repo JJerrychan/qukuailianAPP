@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:id="@+id/popwindowbankcard"
+    android:paddingBottom="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@drawable/background2">
+
+        <TextView
+            android:id="@+id/pop1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="持卡人说明"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/pop2"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1.为了资金安全,一个账号，只能添加同一身份下的银行卡。\n
+            \n2.如需添加其他持卡人的银行卡，需要更换实名。\n
+            \n3.更换实名后，原持卡人的信息将会被清空,
+             \n后续仅能添加新持卡人的银行卡。"
+            android:textSize="17sp"
+            android:textColor="@color/colorregister"/>
+
+        <Button
+            android:id="@+id/pop3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:foreground="?selectableItemBackground"
+            android:background="@drawable/button"
+            android:text="我知道了"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#ffffff"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
