@@ -1,4 +1,4 @@
-package com.cq.xinyupintai.Presenter.activity;
+package com.cq.xinyupintai.Presenter.Dialog;
 
 import android.app.Dialog;
 import android.content.Context;
