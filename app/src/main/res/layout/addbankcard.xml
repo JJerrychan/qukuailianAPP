@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/returnlast"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取消"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="35dp"
+        android:paddingRight="35dp"
+        android:orientation="vertical">
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="添加银行卡"
+            android:textStyle="bold"
+            android:textSize="21sp"
+            android:gravity="center"/>
+
+
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="请绑定持卡人本人的银行卡"
+            android:textSize="18sp"
+            android:gravity="center"/>
+
+
+
+        <RelativeLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="持卡人"
+                android:textSize="18dp"/>
+
+
+            <EditText
+                android:id="@+id/bank_name"
+                android:layout_toRightOf="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="持卡人姓名"
+                android:layout_marginLeft="10dp"
+                android:padding="10dp"
+                android:textSize="18dp"
+                android:background="@null"
+                android:drawableRight="@mipmap/attation"/>
+
+
+
+            <View
+                android:layout_below="@+id/ed1"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dip"
+                android:background="@android:color/darker_gray" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_below="@+id/ed1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="@android:color/darker_gray" />
+
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="卡号"
+                android:textSize="18dp"/>
+
+
+            <EditText
+                android:id="@+id/bank_id"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="持卡人本人银行卡号"
+                android:layout_marginLeft="10dp"
+                android:textSize="18dp"
+                android:padding="10dp"
+                android:background="@null"
+                android:drawableRight="@mipmap/photo"/>
+
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_below="@+id/ed1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="@android:color/darker_gray" />
+
+
+
+        <Button
+            android:id="@+id/bt_next"
+            android:layout_marginTop="270dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:text="下一步"
+            android:layout_gravity="center"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

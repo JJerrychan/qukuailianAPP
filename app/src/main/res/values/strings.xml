@@ -9,4 +9,16 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    <string name="edittext_hintuser"><font size ="13">请输入手机号/用户名/邮箱/公司名称</font></string>
+    <string name="edittext_hintpwd"><font size ="13">请输入密码</font></string>
+
+
+    <string name="title_activity_mainbutton">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
 </resources>

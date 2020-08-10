@@ -1,46 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Presenter.activity.register">
+    tools:context=".Presenter.register"
+    android:background="#ffffff">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:background="#4169E1"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="登录信预"
-            android:textSize="15sp"
-            android:textColor="#ffffff" />
 
-        <TextView
-            android:id="@+id/tv2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="商家注册"
-            android:textSize="22sp"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:layout_centerHorizontal="true" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="登录信预"
+                android:gravity="center"
+                android:drawableStart="@mipmap/arrowleft"
+                android:textSize="13sp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="商家注册"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:layout_centerHorizontal="true" />
+
+
+            <View
+                android:layout_below="@id/tv_back"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="1dip"
+                android:background="@android:color/darker_gray" />
+
+
+        </RelativeLayout>
+
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/tv2"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/background"
-            android:padding="10dp">
+            android:background="#ffffff">
 
-            <RelativeLayout android:layout_marginTop="20dp">
+            <RelativeLayout
+                android:layout_marginTop="25dp"
+                android:paddingLeft="5dp">
 
 
                 <TextView
@@ -49,28 +70,40 @@
                     android:layout_height="40dp"
                     android:text="登录账号"
                     android:gravity="center"
-                    android:textSize="18sp"
-                    android:textColor="#6495ED" />
+                    android:textSize="16sp"
+                    android:textColor="@color/colorregister" />
 
                 <EditText
+                    android:id="@+id/ed_1"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:textSize="16sp"
-                    android:hint="  请输入用于登录系统的用户名"
+                    android:textSize="14sp"
+                    android:hint="请输入用于登录系统的用户名"
                     android:background="@null"
                     android:layout_toRightOf="@id/id"
                     android:layout_marginLeft="20dp" />
 
+                <ImageView
+                    android:id="@+id/clearn_1"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/delete"/>
+
+
                 <View
                     android:layout_below="@id/id"
                     android:layout_width="match_parent"
-                    android:layout_height="1dip"
+                    android:layout_height="0.5dip"
                     android:background="@android:color/darker_gray" />
 
 
             </RelativeLayout>
 
-            <RelativeLayout android:layout_marginTop="20dp">
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp">
 
                 <TextView
                     android:id="@+id/pwd"
@@ -78,28 +111,40 @@
                     android:layout_height="40sp"
                     android:gravity="center"
                     android:text="登录密码"
-                    android:textSize="18sp"
-                    android:textColor="#6495ED" />
+                    android:textSize="16sp"
+                    android:textColor="@color/colorregister"/>
 
                 <EditText
+                    android:id="@+id/ed_2"
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
-                    android:hint="  请输入密码"
+                    android:hint="请输入密码"
                     android:background="@null"
                     android:layout_toRightOf="@+id/pwd"
-                    android:textSize="16sp"
-                    android:layout_marginLeft="20dp" />
+                    android:textSize="14sp"
+                    android:layout_marginLeft="20dp"
+                    android:drawableRight="@mipmap/close_eye"/>
+
+                <ImageView
+                    android:id="@+id/clearn_2"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="310dp"
+                    android:background="@mipmap/delete"/>
 
                 <View
                     android:layout_below="@id/pwd"
                     android:layout_width="match_parent"
-                    android:layout_height="1dip"
+                    android:layout_height="0.5dip"
                     android:background="@android:color/darker_gray" />
 
 
             </RelativeLayout>
 
-            <RelativeLayout android:layout_marginTop="20dp">
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp">
 
                 <TextView
                     android:id="@+id/pwd2"
@@ -107,27 +152,39 @@
                     android:layout_height="40sp"
                     android:gravity="center"
                     android:text="确认密码"
-                    android:textSize="18sp"
-                    android:textColor="#6495ED" />
+                    android:textSize="16sp"
+                    android:textColor="@color/colorregister" />
 
                 <EditText
+                    android:id="@+id/ed_3"
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
-                    android:hint="  请再一次输入相同的密码"
+                    android:hint="请再一次输入相同的密码"
+                    android:drawableRight="@mipmap/close_eye"
                     android:background="@null"
                     android:layout_toRightOf="@+id/pwd2"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginLeft="20dp" />
+
+                <ImageView
+                    android:id="@+id/clearn_3"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="310dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/delete"/>
 
                 <View
                     android:layout_below="@id/pwd2"
                     android:layout_width="match_parent"
-                    android:layout_height="1dip"
+                    android:layout_height="0.5dip"
                     android:background="@android:color/darker_gray" />
 
             </RelativeLayout>
 
-            <RelativeLayout android:layout_marginTop="20dp">
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp">
 
                 <TextView
                     android:id="@+id/company"
@@ -135,28 +192,39 @@
                     android:layout_height="40sp"
                     android:gravity="center"
                     android:text="公司名称"
-                    android:textSize="18sp"
-                    android:textColor="#6495ED" />
+                    android:textSize="16sp"
+                    android:textColor="@color/colorregister" />
 
                 <EditText
+                    android:id="@+id/ed_4"
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
-                    android:hint="  请输入在工商登记的公司名称"
+                    android:hint="请输入在工商登记的公司名称"
                     android:background="@null"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_toRightOf="@+id/company"
                     android:layout_marginLeft="20dp" />
+
+                <ImageView
+                    android:id="@+id/clearn_4"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/delete"/>
 
                 <View
                     android:layout_below="@id/company"
                     android:layout_width="match_parent"
-                    android:layout_height="1dip"
+                    android:layout_height="0.5dip"
                     android:background="@android:color/darker_gray" />
 
 
             </RelativeLayout>
 
-            <RelativeLayout android:layout_marginTop="20dp">
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp">
 
                 <TextView
                     android:id="@+id/companyid"
@@ -164,57 +232,79 @@
                     android:layout_height="40sp"
                     android:gravity="center"
                     android:text="组织代码"
-                    android:textSize="18sp"
-                    android:textColor="#6495ED" />
+                    android:textSize="16sp"
+                    android:textColor="@color/colorregister" />
 
                 <EditText
+                    android:id="@+id/ed_5"
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
-                    android:hint="  请输入在工商登记的公司名称"
+                    android:hint="请输入在工商登记的公司名称"
                     android:background="@null"
                     android:layout_toRightOf="@id/companyid"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginLeft="20dp" />
+
+                <ImageView
+                    android:id="@+id/clearn_5"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/delete"/>
 
                 <View
                     android:layout_below="@id/companyid"
                     android:layout_width="match_parent"
-                    android:layout_height="1dip"
+                    android:layout_height="0.5dip"
                     android:background="@android:color/darker_gray" />
 
 
             </RelativeLayout>
 
-            <RelativeLayout android:layout_marginTop="20dp">
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp">
 
                 <TextView
                     android:id="@+id/bankid"
                     android:layout_width="wrap_content"
                     android:layout_height="40sp"
                     android:text="银行账号"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:gravity="center"
-                    android:textColor="#6495ED" />
+                    android:textColor="@color/colorregister" />
 
                 <EditText
+                    android:id="@+id/ed_6"
                     android:layout_width="match_parent"
                     android:layout_height="40sp"
-                    android:hint="  请输入用于结账收款的银行账号"
+                    android:hint="请输入用于结账收款的银行账号"
                     android:background="@null"
                     android:layout_toRightOf="@+id/bankid"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginLeft="20dp" />
+
+                <ImageView
+                    android:id="@+id/clearn_6"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/delete"/>
 
                 <View
                     android:layout_below="@id/bankid"
                     android:layout_width="match_parent"
-                    android:layout_height="1dip"
+                    android:layout_height="0.5dip"
                     android:background="@android:color/darker_gray" />
 
 
             </RelativeLayout>
 
-            <RelativeLayout android:layout_marginTop="20dp">
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp">
 
                 <TextView
                     android:id="@+id/people"
@@ -222,28 +312,39 @@
                     android:layout_height="40dp"
                     android:gravity="center"
                     android:text="联系人"
-                    android:textSize="18sp"
-                    android:textColor="#6495ED" />
+                    android:textSize="16sp"
+                    android:textColor="@color/colorregister" />
 
                 <EditText
+                    android:id="@+id/ed_7"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:hint="  请输入公司联系人姓名"
+                    android:hint="请输入公司联系人姓名"
                     android:background="@null"
                     android:layout_toRightOf="@+id/people"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginLeft="39dp" />
+
+                <ImageView
+                    android:id="@+id/clearn_7"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/delete"/>
 
                 <View
                     android:layout_below="@id/people"
                     android:layout_width="match_parent"
-                    android:layout_height="1dip"
+                    android:layout_height="0.5dip"
                     android:background="@android:color/darker_gray" />
 
 
             </RelativeLayout>
 
-            <RelativeLayout android:layout_marginTop="20dp">
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp">
 
                 <TextView
                     android:id="@+id/iphone"
@@ -251,30 +352,40 @@
                     android:layout_height="40dp"
                     android:gravity="center"
                     android:text="手机号码"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
 
-                    android:textColor="#6495ED" />
+                    android:textColor="@color/colorregister" />
 
                 <EditText
+                    android:id="@+id/ed_8"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:hint="  请输入公司业务手机号码"
+                    android:hint="请输入公司业务手机号码"
                     android:background="@null"
                     android:layout_toRightOf="@+id/iphone"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginLeft="20dp" />
+
+                <ImageView
+                    android:id="@+id/clearn_8"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/delete"/>
 
                 <View
                     android:layout_below="@id/iphone"
                     android:layout_width="match_parent"
-                    android:layout_height="1dip"
+                    android:layout_height="0.5dip"
                     android:background="@android:color/darker_gray" />
 
 
             </RelativeLayout>
 
-
-            <RelativeLayout android:layout_marginTop="20dp">
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp">
 
                 <TextView
                     android:id="@+id/email"
@@ -282,129 +393,211 @@
                     android:layout_height="40dp"
                     android:gravity="center"
                     android:text="电子邮箱"
-                    android:textSize="18sp"
-                    android:textColor="#6495ED" />
+                    android:textSize="16sp"
+                    android:textColor="@color/colorregister" />
 
                 <EditText
+                    android:id="@+id/ed_9"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_toRightOf="@+id/email"
-                    android:hint="  请输入公司电子邮箱"
+                    android:hint="请输入公司电子邮箱"
                     android:background="@null"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginLeft="20dp" />
+
+                <ImageView
+                    android:id="@+id/clearn_9"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/delete"/>
 
                 <View
                     android:layout_below="@id/email"
                     android:layout_width="match_parent"
-                    android:layout_height="1dip"
+                    android:layout_height="0.5dip"
+                    android:background="@android:color/darker_gray" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp">
+
+                <TextView
+                    android:id="@+id/region"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="所在地区"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorregister" />
+
+                <TextView
+                    android:id="@+id/cityselectview"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@+id/region"
+                    android:hint="省市区县、乡镇等"
+                    android:gravity="left|center_vertical"
+                    android:drawableRight="@mipmap/position"
+                    android:background="@null"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="20dp"/>
+
+
+                <View
+                    android:layout_below="@id/region"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dip"
+                    android:background="@android:color/darker_gray" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:paddingLeft="5dp">
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="详细地址"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorregister" />
+
+                <EditText
+                    android:id="@+id/ed_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@+id/address"
+                    android:hint="街道、楼牌号等"
+                    android:background="@null"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="20dp" />
+
+                <ImageView
+                    android:id="@+id/clearn_10"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/delete"/>
+
+                <View
+                    android:layout_below="@id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dip"
                     android:background="@android:color/darker_gray" />
 
             </RelativeLayout>
 
 
+            <!--            <LinearLayout-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="所 在 省   "-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textColor="#6495ED" />-->
+
+            <!--                <Spinner-->
+            <!--                    android:id="@+id/province"-->
+            <!--                    android:layout_width="90dp"-->
+            <!--                    android:layout_height="wrap_content" />-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text=" 城 市  "-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:layout_marginLeft="20dp"-->
+            <!--                    android:textColor="#6495ED" />-->
+
+            <!--                <Spinner-->
+            <!--                    android:id="@+id/city"-->
+            <!--                    android:layout_width="90dp"-->
+            <!--                    android:layout_height="wrap_content" />-->
+
+
+            <!--            </LinearLayout>-->
+
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="所 在 区   "-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textColor="#6495ED" />-->
+
+            <!--                <Spinner-->
+            <!--                    android:id="@+id/district"-->
+            <!--                    android:layout_width="90dp"-->
+            <!--                    android:layout_height="wrap_content" />-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text=" 街 道  "-->
+            <!--                    android:textSize="18sp"-->
+            <!--                    android:layout_marginLeft="20dp"-->
+            <!--                    android:textColor="#6495ED" />-->
+
+            <!--                <Spinner-->
+            <!--                    android:id="@+id/street"-->
+            <!--                    android:layout_width="90dp"-->
+            <!--                    android:layout_height="wrap_content" />-->
+
+
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="所 在 路   "-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textColor="#6495ED" />-->
+
+            <!--                <Spinner-->
+            <!--                    android:id="@+id/way"-->
+            <!--                    android:layout_width="90dp"-->
+            <!--                    android:layout_height="wrap_content" />-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text=" 门 牌  "-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:layout_marginLeft="20dp"-->
+            <!--                    android:textColor="#6495ED" />-->
+
+            <!--                <Spinner-->
+            <!--                    android:id="@+id/doorplate"-->
+            <!--                    android:layout_width="90dp"-->
+            <!--                    android:layout_height="wrap_content" />-->
+
+
+            <!--            </LinearLayout>-->
+
             <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="所 在 省   "
-                    android:textSize="18sp"
-                    android:textColor="#6495ED" />
-
-                <Spinner
-                    android:id="@+id/province"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" 城 市  "
-                    android:textSize="18sp"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="#6495ED" />
-
-                <Spinner
-                    android:id="@+id/city"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content" />
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="所 在 区   "
-                    android:textSize="18sp"
-                    android:textColor="#6495ED" />
-
-                <Spinner
-                    android:id="@+id/district"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" 街 道  "
-                    android:textSize="18sp"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="#6495ED" />
-
-                <Spinner
-                    android:id="@+id/street"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="所 在 路   "
-                    android:textSize="18sp"
-                    android:textColor="#6495ED" />
-
-                <Spinner
-                    android:id="@+id/way"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" 门 牌  "
-                    android:textSize="18sp"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="#6495ED" />
-
-                <Spinner
-                    android:id="@+id/doorplate"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="55dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content">
 

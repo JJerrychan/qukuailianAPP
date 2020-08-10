@@ -1,6 +1,10 @@
 package com.cq.xinyupintai.Presenter.activity;
 
 
+import android.content.Context;
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -8,14 +12,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.view.MenuItem;
-
-
-import com.cq.xinyupintai.Presenter.Adapter.PageAdapter;
+import com.cq.xinyupintai.Presenter.fragment.Card_Fragment;
 import com.cq.xinyupintai.Presenter.fragment.boss_home_fragment;
-
 import com.cq.xinyupintai.Presenter.fragment.setting_fragment;
 import com.cq.xinyupintai.Presenter.fragment.settle_fragment;
 import com.cq.xinyupintai.R;
@@ -24,18 +22,42 @@ import com.xuexiang.xui.XUI;
 
 import java.util.ArrayList;
 
+class PageAdapter extends FragmentPagerAdapter {
+    final ArrayList<Fragment> fgLists = new ArrayList<>(4);
+    private Context mContext;
+
+    public PageAdapter(Context context, FragmentManager fm) {
+        super(fm);
+        mContext = context;
+        fgLists.add(new boss_home_fragment());
+        fgLists.add(new settle_fragment());
+        fgLists.add(new Card_Fragment());
+        fgLists.add(new setting_fragment());
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        return fgLists.get(position);
+    }
+
+    @Override
+    public int getCount() {
+        return 4;
+    }
+}
 
 public class BossActivity extends AppCompatActivity {
     private ViewPager vp;
     private BottomNavigationView bnv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         XUI.initTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boss);
-        vp=findViewById(R.id.vp);
-        bnv=findViewById(R.id.bottomNavigation);
-        vp.setAdapter(new PageAdapter(BossActivity.this,getSupportFragmentManager()));
+        vp = findViewById(R.id.vp);
+        bnv = findViewById(R.id.bottomNavigation);
+        vp.setAdapter(new PageAdapter(BossActivity.this, getSupportFragmentManager()));
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -47,8 +69,11 @@ public class BossActivity extends AppCompatActivity {
                     case R.id.settle:
                         vp.setCurrentItem(1);
                         break;
+                    case R.id.pocket:
+                        vp.setCurrentItem(2);
+                        break;
                     case R.id.setting:
-                         vp.setCurrentItem(2);
+                        vp.setCurrentItem(3);
                         break;
                 }
                 return false;
