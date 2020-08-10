@@ -24,7 +24,8 @@
         android:layout_centerInParent="true"
         app:cardCornerRadius="10dp"
         app:cardBackgroundColor="#FFFF"
-        app:contentPadding="10dp">
+        app:contentPadding="10dp"
+        android:layout_gravity="center">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
