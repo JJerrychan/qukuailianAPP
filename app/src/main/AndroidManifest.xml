@@ -8,10 +8,13 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".myApplication">
         <activity android:name=".Presenter.activity.BossActivity"></activity>
         <activity android:name=".Presenter.activity.ClosingStockActivity" />
         <activity android:name=".Presenter.activity.register" />
+        <activity android:name=".Presenter.activity.StatisticsActivity"/>
+        <activity android:name=".Presenter.activity.EvaActivity"/>
         <activity
             android:name=".Presenter.activity.MainView"
             android:label="@string/app_name">
