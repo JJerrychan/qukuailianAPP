@@ -1,44 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    android:layout_margin="5dp"
-    android:layout_gravity="center_horizontal"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="8dp"
-    app:cardBackgroundColor="#FFFFE0"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/tv_items1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="3dp"/>
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="#64B5F6"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
 
-        <TextView
-            android:id="@+id/tv_items2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-           android:layout_marginLeft="100dp"/>
-    </LinearLayout>
-        <TextView
-            android:id="@+id/tv_items3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="3dp"
-            android:layout_gravity="center"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LL_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_items1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="datetime"
+                android:text="2019-02-11 10:16"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_items2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:text="营业员" />
+
+            <TextView
+                android:id="@+id/tv_items3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:text="状态:" />
+
+            <TextView
+                android:id="@+id/tv_items4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:text="未付钱" />
+        </LinearLayout>
+
+        <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+            android:id="@+id/sbt_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LL_3"
+            android:layout_alignParentBottom="true"
+            app:sLeftTextString="消费金额:"
+            app:sCenterTextString="100元"
+            app:sCenterViewGravity="left_center"
+            android:background="#64B5F6"
+            app:sUseRipple="false"/>
+        <Button
+            android:id="@+id/bt_8"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
+            android:layout_alignRight="@+id/sbt_1"
+            android:layout_below="@id/LL_3"
+
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:text="详情"
+            android:textSize="12dp"
+            android:background="@drawable/flatbutton"
+            android:textColor="#3E2723"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>
 
 

@@ -12,39 +12,17 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.cq.xinyupintai.Presenter.Adapter.PageAdapter;
 import com.cq.xinyupintai.Presenter.fragment.Card_Fragment;
 import com.cq.xinyupintai.Presenter.fragment.boss_home_fragment;
 import com.cq.xinyupintai.Presenter.fragment.setting_fragment;
 import com.cq.xinyupintai.Presenter.fragment.settle_fragment;
 import com.cq.xinyupintai.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.xuexiang.xui.XUI;
 
 import java.util.ArrayList;
-
-class PageAdapter extends FragmentPagerAdapter {
-    final ArrayList<Fragment> fgLists = new ArrayList<>(4);
-    private Context mContext;
-
-    public PageAdapter(Context context, FragmentManager fm) {
-        super(fm);
-        mContext = context;
-        fgLists.add(new boss_home_fragment());
-        fgLists.add(new settle_fragment());
-        fgLists.add(new Card_Fragment());
-        fgLists.add(new setting_fragment());
-    }
-
-    @Override
-    public Fragment getItem(int position) {
-        return fgLists.get(position);
-    }
-
-    @Override
-    public int getCount() {
-        return 4;
-    }
-}
 
 public class BossActivity extends AppCompatActivity {
     private ViewPager vp;

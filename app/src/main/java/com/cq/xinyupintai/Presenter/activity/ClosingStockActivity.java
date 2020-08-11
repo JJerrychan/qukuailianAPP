@@ -39,7 +39,7 @@ public class ClosingStockActivity extends AppCompatActivity {
 
         for(int i=0; i<20; ++i){
             String itemText = "";
-            itemText = "测试第" + (i+1) + "条数据";
+            itemText = "第" + (i+1) + "号营业员";
             text.add(itemText);
         }
 

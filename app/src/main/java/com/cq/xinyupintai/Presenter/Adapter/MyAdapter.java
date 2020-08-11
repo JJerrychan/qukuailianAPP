@@ -32,9 +32,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.TextHolder> {
     public void onBindViewHolder(TextHolder holder, int position) {                 //绑定数据
         //后续获取数据需要修改此处
         String mtext = texts.get(position);
-        holder.setTimeText(mtext);
-        holder.setStateText(mtext);
-        holder.setMoneyText(mtext);
+        holder.setEmployeesText(mtext);
     }
 
     @Override
@@ -43,24 +41,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.TextHolder> {
     }
 
     public static class TextHolder extends RecyclerView.ViewHolder{
-        private TextView time;
-        private TextView state;
-        private TextView money;
+        private TextView employees;
         public TextHolder(View itemView) {
             super(itemView);
-
-            time = (TextView) itemView.findViewById(R.id.tv_items1);
-            state = (TextView) itemView.findViewById(R.id.tv_items2);
-            money = (TextView) itemView.findViewById(R.id.tv_items3);
+            employees = (TextView) itemView.findViewById(R.id.tv_items2);
         }
-        public void setTimeText(String timeText){
-            time.setText(timeText);
-        }
-        public void setStateText(String StateText){
-            state.setText(StateText);
-        }
-        public void setMoneyText(String MoneyText){
-            money.setText(MoneyText);
+        public void setEmployeesText(String EmployeesText){
+            employees.setText(EmployeesText);
         }
     }
 }

@@ -26,7 +26,7 @@ import com.smarttop.library.db.manager.AddressDictManager;
 import com.smarttop.library.widget.AddressSelector;
 import com.smarttop.library.widget.OnAddressSelectedListener;
 
-public class register<AddressDictManager, OnAddressSelectedListener> extends Activity implements View.OnClickListener , OnAddressSelectedListener,
+public class register extends Activity implements View.OnClickListener , OnAddressSelectedListener,
         AddressSelector.OnDialogCloseListener{
 
 

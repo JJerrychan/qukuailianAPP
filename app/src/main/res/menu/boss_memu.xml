@@ -6,11 +6,11 @@
         android:title="消息" />
     <item
         android:id="@+id/settle"
-        android:icon="@mipmap/settle"
+        android:icon="@mipmap/pocket"
         android:title="结账" />
     <item
         android:id="@+id/pocket"
-        android:icon="@mipmap/pocket"
+        android:icon="@mipmap/card"
         android:title="预付卡" />
 
     <item
