@@ -11,18 +11,18 @@
         android:layout_height="wrap_content"
         android:text="商家名称"
         android:gravity="center"
-        android:textColor="#E8EAF6"/>
+        android:textColor="#212121"/>
     <androidx.cardview.widget.CardView
         android:id="@+id/cardv_1"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         app:cardElevation="18dp"
         android:layout_centerInParent="true"
         app:cardCornerRadius="10dp"
-        app:cardBackgroundColor="#FFFF"
+        app:cardBackgroundColor="#1677FF"
         app:contentPadding="10dp"
         android:layout_gravity="center">
         <RelativeLayout
@@ -30,16 +30,19 @@
             android:layout_height="wrap_content">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:text="店铺数据"
-                android:textSize="30dp"
+                android:layout_height="wrap_content"
+                android:text="TODAY"
+                android:textSize="20dp"
                 android:layout_margin="5dp"
-                android:layout_above="@+id/rc_boss_1"/>
+                android:layout_above="@+id/rc_boss_1"
+                android:layout_alignParentTop="true"
+                android:textColor="#FFFF"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rc_boss_1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:overScrollMode="never"/>
+                android:layout_height="90dp"
+                android:overScrollMode="never"
+                android:layout_alignParentBottom="true"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
     <com.google.android.material.tabs.TabLayout
@@ -49,8 +52,8 @@
         app:tabGravity="fill"
         app:tabMaxWidth="0dp"
         app:tabIndicatorColor="@color/colorAccent"
-        app:tabSelectedTextColor="#DCEDC8"
-        app:tabTextColor="#E1F5FE"
+        app:tabSelectedTextColor="#303F9F"
+        app:tabTextColor="#212121"
         app:tabIndicatorFullWidth="false">
     </com.google.android.material.tabs.TabLayout>
 

@@ -40,7 +40,7 @@ public class  messagePageAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position){
         switch (position){
             case 0:
-                return "顾客评价";
+                return "评价";
             case 1:
                 return "消息";
             default:

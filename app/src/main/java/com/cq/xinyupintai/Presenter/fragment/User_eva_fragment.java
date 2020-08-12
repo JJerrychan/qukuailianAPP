@@ -27,9 +27,9 @@ public class User_eva_fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView rcBossMessage=view.findViewById(R.id.rc_boss_2);
-        rcBossMessage.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rcBossMessage.setAdapter(new UserEvaAdapter(getActivity(),TextInit()));
+        RecyclerView rcBossEva=view.findViewById(R.id.rc_boss_2);
+        rcBossEva.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rcBossEva.setAdapter(new UserEvaAdapter(getActivity(),TextInit()));
     }
     //测试用后期删除
     private List<String> TextInit() {

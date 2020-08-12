@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="15dp">
+
+    <com.xuexiang.xui.widget.imageview.RadiusImageView
+        android:layout_marginTop="22dp"
+        android:id="@+id/message_img"
+        android:clickable="true"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:riv_border_color="@color/xui_config_color_gray_6"
+        app:riv_border_width="1px"
+        app:riv_is_oval="true"
+        app:riv_selected_border_color="@color/xui_config_color_gray_4"
+        app:riv_selected_border_width="1px"
+        app:riv_selected_mask_color="@color/xui_config_color_gray_8"/>
+        <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
+            android:id="@+id/stv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_toRightOf="@+id/message_img"
+            android:layout_alignParentRight="true"
+            app:sLeftTopTextString="姓名"
+            app:sLeftBottomTextString="测试一条信息"
+            app:sLeftViewGravity="left_center"
+            app:sDividerLineHeight="1dp"/>
+</RelativeLayout>
