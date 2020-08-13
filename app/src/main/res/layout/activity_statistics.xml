@@ -6,16 +6,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Presenter.activity.StatisticsActivity"
     android:background="#E3F2FD">
-
-<TextView
-    android:id="@+id/tv_st_1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="15dp"
-    android:textSize="30dp"
-    android:text="店铺管理"
-    android:layout_alignParentLeft="true"
-    android:textStyle="bold"/>
+    <com.xuexiang.xui.widget.actionbar.TitleBar
+        android:id="@+id/bar_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:tb_useThemeColor="false"
+        app:tb_titleTextColor="#212121"
+        app:tb_barHeight="65dp"
+        app:tb_sideTextPadding="20dp"
+        app:tb_leftImageResource="@mipmap/return_black"
+        app:tb_actionPadding="20dp"
+        app:tb_titleText="店铺管理"
+        android:layout_alignParentTop="true"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardv_3"
@@ -30,7 +33,7 @@
         app:cardBackgroundColor="@color/liji_material_blue_700"
         app:contentPadding="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_below="@id/tv_st_1"
+        android:layout_below="@id/bar_1"
         android:padding="5dp">
         <RelativeLayout
             android:layout_width="match_parent"
