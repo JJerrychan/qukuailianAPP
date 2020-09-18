@@ -12,5 +12,13 @@
     <color name="colorregister">#696969</color>
     <color name="setTextSelectedColor">#DC143C</color>
     <color name="colocdDark">#000000</color>
+    
+    
+<!--  以下是自定义的配色方案  -->
+    <color name="c1">#011935</color>
+    <color name="c2">#00343F</color>
+    <color name="c3">#1DB0B8</color>
+    <color name="c4">#37C6C0</color>
+    <color name="c5">#D0E9FF</color>
 
 </resources>
