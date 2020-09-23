@@ -16,6 +16,7 @@ import com.cq.xinyupintai.Presenter.activity.EditCard;
 import com.cq.xinyupintai.Presenter.activity.MainView;
 import com.cq.xinyupintai.Presenter.activity.register;
 import com.cq.xinyupintai.R;
+import com.xuexiang.xui.widget.button.ButtonView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -67,18 +68,20 @@ public class Card_Fragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button add_btn=view.findViewById(R.id.add_btn);
-        Button edit_btn=view.findViewById(R.id.edit_btn);
-        Button push_btn=view.findViewById(R.id.push_btn);
-        Button delete_btn=view.findViewById(R.id.delete_btn);
-        Button close_btn=view.findViewById(R.id.close_btn);
-        Button stop_btn=view.findViewById(R.id.stop_btn);
+        ButtonView add_btn = view.findViewById(R.id.add_card);
         add_btn.setOnClickListener(this);
-        edit_btn.setOnClickListener(this);
-        push_btn.setOnClickListener(this);
-        delete_btn.setOnClickListener(this);
-        close_btn.setOnClickListener(this);
-        stop_btn.setOnClickListener(this);
+//        Button add_btn=view.findViewById(R.id.add_btn);
+//        Button edit_btn=view.findViewById(R.id.edit_btn);
+//        Button push_btn=view.findViewById(R.id.push_btn);
+//        Button delete_btn=view.findViewById(R.id.delete_btn);
+//        Button close_btn=view.findViewById(R.id.close_btn);
+//        Button stop_btn=view.findViewById(R.id.stop_btn);
+//        add_btn.setOnClickListener(this);
+//        edit_btn.setOnClickListener(this);
+//        push_btn.setOnClickListener(this);
+//        delete_btn.setOnClickListener(this);
+//        close_btn.setOnClickListener(this);
+//        stop_btn.setOnClickListener(this);
     }
 
     @Override
@@ -91,22 +94,32 @@ public class Card_Fragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.add_btn:
+            case R.id.add_card:
                 Intent intent = new Intent(getActivity(), EditCard.class);
                 startActivity(intent);
                 break;
-            case R.id.edit_btn:
-                Intent intent1 = new Intent(getActivity(), EditCard.class);
-                startActivity(intent1);
-                break;
-            case R.id.push_btn:
-                break;
-            case R.id.stop_btn:
-                break;
-            case R.id.close_btn:
-                break;
-            case R.id.delete_btn:
-                break;
         }
     }
+
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.add_btn:
+//                Intent intent = new Intent(getActivity(), EditCard.class);
+//                startActivity(intent);
+//                break;
+//            case R.id.edit_btn:
+//                Intent intent1 = new Intent(getActivity(), EditCard.class);
+//                startActivity(intent1);
+//                break;
+//            case R.id.push_btn:
+//                break;
+//            case R.id.stop_btn:
+//                break;
+//            case R.id.close_btn:
+//                break;
+//            case R.id.delete_btn:
+//                break;
+//        }
+//    }
 }

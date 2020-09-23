@@ -69,6 +69,7 @@ public class EditCard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_card);
         mHandler.sendEmptyMessage(MSG_LOAD_DATA);

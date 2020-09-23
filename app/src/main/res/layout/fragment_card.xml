@@ -4,64 +4,78 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_above="@id/bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/add_card"
         android:padding="15dp"
         android:id="@+id/rc_settle" />
 
-    <LinearLayout
-        android:padding="3dp"
-        android:id="@+id/bottom"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+    <com.xuexiang.xui.widget.button.ButtonView
+        app:textDrawable="@mipmap/add"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="5dp"
-        android:background="#C0C9E4"
-        android:orientation="horizontal">
-        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
-            android:layout_margin="3dp"
-            android:text="添加"
-            android:id="@+id/add_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
-            android:layout_margin="3dp"
-            android:text="编辑"
-            android:id="@+id/edit_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
-            android:layout_margin="3dp"
-            android:text="发布"
-            android:id="@+id/push_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
-            android:layout_margin="3dp"
-            android:text="停售"
-            android:id="@+id/stop_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
-            android:layout_margin="3dp"
-            android:text="关闭"
-            android:id="@+id/close_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
-            android:layout_margin="3dp"
-            android:text="删除"
-            android:id="@+id/delete_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-    </LinearLayout>
+        android:layout_margin="10dp"
+        app:textRadius="15dp"
+        android:id="@+id/add_card"
+        app:textSolidColor="@color/appblue"
+        style="@style/Button.Blue"
+        android:text="添加预付卡"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <!--    <LinearLayout-->
+    <!--        android:padding="3dp"-->
+    <!--        android:id="@+id/bottom"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginTop="5dp"-->
+    <!--        android:background="#C0C9E4"-->
+    <!--        android:orientation="horizontal">-->
+    <!--        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton-->
+    <!--            android:layout_margin="3dp"-->
+    <!--            android:text="添加"-->
+    <!--            android:id="@+id/add_btn"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_weight="1"/>-->
+    <!--        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton-->
+    <!--            android:layout_margin="3dp"-->
+    <!--            android:text="编辑"-->
+    <!--            android:id="@+id/edit_btn"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_weight="1"/>-->
+    <!--        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton-->
+    <!--            android:layout_margin="3dp"-->
+    <!--            android:text="发布"-->
+    <!--            android:id="@+id/push_btn"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_weight="1"/>-->
+    <!--        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton-->
+    <!--            android:layout_margin="3dp"-->
+    <!--            android:text="停售"-->
+    <!--            android:id="@+id/stop_btn"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_weight="1"/>-->
+    <!--        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton-->
+    <!--            android:layout_margin="3dp"-->
+    <!--            android:text="关闭"-->
+    <!--            android:id="@+id/close_btn"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_weight="1"/>-->
+    <!--        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton-->
+    <!--            android:layout_margin="3dp"-->
+    <!--            android:text="删除"-->
+    <!--            android:id="@+id/delete_btn"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_weight="1"/>-->
+    <!--    </LinearLayout>-->
 
 </RelativeLayout>

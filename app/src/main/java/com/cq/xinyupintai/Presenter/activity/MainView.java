@@ -40,7 +40,6 @@ public class MainView extends Activity implements View.OnClickListener {
     private TextView forgetpass;
 
 
-
     private EditText editinput;
     private EditText etpassword;
 
@@ -49,8 +48,6 @@ public class MainView extends Activity implements View.OnClickListener {
 
 
     private boolean isHideFirst = true;
-
-
 
 
     private Animbutton animbutton;
@@ -65,7 +62,6 @@ public class MainView extends Activity implements View.OnClickListener {
     private TextView test;
 
     private TitanicTextView title;
-
 
 
     private TextWatcher textWatcher = new TextWatcher() {
@@ -109,17 +105,16 @@ public class MainView extends Activity implements View.OnClickListener {
         initListerner();
 
 
-
         editinput = findViewById(R.id.user);
         editinput.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus == true){// 点击获取
+                if (hasFocus == true) {// 点击获取
                     editinput.setHint("");
-                }else {
+                } else {
                     SpannableString spannableString1 = new SpannableString("请输入手机号/用户名/邮箱/公司全称");
-                    AbsoluteSizeSpan absoluteSizeSpan1 = new AbsoluteSizeSpan(13,true);
-                    spannableString1.setSpan(absoluteSizeSpan1,0,spannableString1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    AbsoluteSizeSpan absoluteSizeSpan1 = new AbsoluteSizeSpan(13, true);
+                    spannableString1.setSpan(absoluteSizeSpan1, 0, spannableString1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     editinput.setHint(new SpannableString(spannableString1));
 
 
@@ -132,12 +127,12 @@ public class MainView extends Activity implements View.OnClickListener {
         etpassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus == true){
+                if (hasFocus == true) {
                     etpassword.setHint("");
-                }else {
+                } else {
                     SpannableString spannableString2 = new SpannableString("请输入密码");
-                    AbsoluteSizeSpan absoluteSizeSpan2 = new AbsoluteSizeSpan(13,true);
-                    spannableString2.setSpan(absoluteSizeSpan2,0,spannableString2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    AbsoluteSizeSpan absoluteSizeSpan2 = new AbsoluteSizeSpan(13, true);
+                    spannableString2.setSpan(absoluteSizeSpan2, 0, spannableString2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     etpassword.setHint(new SpannableString(spannableString2));
 
                 }
@@ -166,7 +161,6 @@ public class MainView extends Activity implements View.OnClickListener {
         });
 
 
-
         forgetpass = findViewById(R.id.forgetpass);
         forgetpass.setOnClickListener(this);
 
@@ -177,7 +171,6 @@ public class MainView extends Activity implements View.OnClickListener {
         final Drawable[] drawables = etpassword.getCompoundDrawables();
         final int eyeWidth = drawables[2].getBounds().width();// 眼睛图标的宽度
         final Drawable drawableEyeOpen = getResources().getDrawable(R.mipmap.open_eye);
-
 
 
         drawableEyeOpen.setBounds(drawables[2].getBounds());//这一步不能省略
