@@ -1,11 +1,11 @@
 package com.cq.xinyupintai.Presenter.fragment;
 
-import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,15 +14,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cq.xinyupintai.Presenter.Adapter.MessageAdapter;
-import com.cq.xinyupintai.Presenter.Adapter.UserEvaAdapter;
-import com.cq.xinyupintai.Presenter.activity.EvaActivity;
-import com.cq.xinyupintai.Presenter.activity.MainView;
 import com.cq.xinyupintai.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class boss_message_fragment extends Fragment {
+    public static boss_message_fragment newInstance(int index) {
+        boss_message_fragment fragment = new boss_message_fragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("index", index);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,26 +37,20 @@ public class boss_message_fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView rcBossMessage=view.findViewById(R.id.rc_boss_2);
+        RecyclerView rcBossMessage = view.findViewById(R.id.rc_boss_2);
         rcBossMessage.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rcBossMessage.setAdapter(new MessageAdapter(getActivity(),TextInit()));
+        rcBossMessage.setAdapter(new MessageAdapter(getActivity(), TextInit()));
     }
+
     private List<String> TextInit() {
         List<String> text = new ArrayList<>();
 
-        for(int i=0; i<20; ++i){
+        for (int i = 0; i < 20; ++i) {
             String itemText = "";
-            itemText = "测试第" + (i+1) + "条信息";
+            itemText = "测试第" + (i + 1) + "条信息";
             text.add(itemText);
         }
 
         return text;
-    }
-    public static boss_message_fragment newInstance(int index) {
-        boss_message_fragment fragment = new boss_message_fragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt("index", index);
-        fragment.setArguments(bundle);
-        return fragment;
     }
 }

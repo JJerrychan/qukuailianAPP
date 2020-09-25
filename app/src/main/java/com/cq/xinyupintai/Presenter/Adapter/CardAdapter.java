@@ -2,13 +2,14 @@ package com.cq.xinyupintai.Presenter.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cq.xinyupintai.Presenter.activity.EvaActivity;
@@ -38,6 +39,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.TextHolder> {
         //后续获取数据需要修改此处
         String mtext = texts.get(position);
         holder.setNum_nameText(mtext);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //卡详细
+//                Intent intent = new Intent(mContext, EvaActivity.class);
+//                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -46,6 +55,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.TextHolder> {
     }
 
     public static class TextHolder extends RecyclerView.ViewHolder {
+        private CardView cardView;
         private ImageView card_img;
         private TextView num_name;
         private TextView status;
@@ -55,7 +65,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.TextHolder> {
 
         public TextHolder(View itemView) {
             super(itemView);
-
+            cardView = itemView.findViewById(R.id.card_view);
             card_img = itemView.findViewById(R.id.card_img);
             num_name = itemView.findViewById(R.id.num_name);
             status = itemView.findViewById(R.id.status);
@@ -64,8 +74,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.TextHolder> {
             discount = itemView.findViewById(R.id.discount);
         }
 
-        public void setCard_img(Image card_img) {
-            //没有set方法
+        public void setCard_img(Drawable img) {
+            card_img.setImageDrawable(img);
         }
 
         public void setNum_nameText(String num_nameText) {

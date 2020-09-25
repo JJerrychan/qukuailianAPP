@@ -18,7 +18,8 @@ import java.util.List;
 public class UserEvaAdapter extends RecyclerView.Adapter<UserEvaAdapter.TextHolder> {
     private Context mContext;
     private List<String> texts;//这里需要修改，获取结账记录
-    public UserEvaAdapter(Context context, List<String> textInfo){
+
+    public UserEvaAdapter(Context context, List<String> textInfo) {
         mContext = context;
         texts = textInfo;
     }
@@ -39,7 +40,7 @@ public class UserEvaAdapter extends RecyclerView.Adapter<UserEvaAdapter.TextHold
         holder.require.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(mContext,EvaActivity.class);
+                Intent intent = new Intent(mContext, EvaActivity.class);
                 mContext.startActivity(intent);
             }
         });
@@ -50,31 +51,43 @@ public class UserEvaAdapter extends RecyclerView.Adapter<UserEvaAdapter.TextHold
         return texts.size();
     }
 
-    public static class TextHolder extends RecyclerView.ViewHolder{
+    public static class TextHolder extends RecyclerView.ViewHolder {
         private TextView time;
         private TextView phone;
         private TextView star;
         private TextView name;
         private TextView eva;
         private Button require;
+
         public TextHolder(View itemView) {
             super(itemView);
 
             time = itemView.findViewById(R.id.tv_item_date);
             phone = itemView.findViewById(R.id.tv_item_phone);
-            star =  itemView.findViewById(R.id.tv_item_star);
-            name=itemView.findViewById(R.id.tv_item_name);
-            eva=itemView.findViewById(R.id.tv_item_eva);
-            require=itemView.findViewById(R.id.bt_request);
+            star = itemView.findViewById(R.id.tv_item_star);
+            name = itemView.findViewById(R.id.tv_item_name);
+            eva = itemView.findViewById(R.id.tv_item_eva);
+            require = itemView.findViewById(R.id.bt_request);
         }
-        public void setTimeText(String timeText){
+
+        public void setTimeText(String timeText) {
             time.setText(timeText);
         }
-        public void setPhoneText(String PhoneText){
+
+        public void setPhoneText(String PhoneText) {
             phone.setText(PhoneText);
         }
-        public void setStarMText(String StarText){ star.setText(StarText); }
-        public void setNameMText(String NameText){ name.setText(NameText); }
-        public void setEvaMText(String EvaText){ eva.setText(EvaText); }
+
+        public void setStarMText(String StarText) {
+            star.setText(StarText);
+        }
+
+        public void setNameMText(String NameText) {
+            name.setText(NameText);
+        }
+
+        public void setEvaMText(String EvaText) {
+            eva.setText(EvaText);
+        }
     }
 }

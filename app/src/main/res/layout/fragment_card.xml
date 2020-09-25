@@ -8,7 +8,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/add_card"
+        android:layout_above="@+id/add_card_btn"
         android:padding="15dp"
         android:id="@+id/rc_settle" />
 
@@ -17,7 +17,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
         app:textRadius="15dp"
-        android:id="@+id/add_card"
+        android:id="@+id/add_card_btn"
         app:textSolidColor="@color/appblue"
         style="@style/Button.Blue"
         android:text="添加预付卡"
