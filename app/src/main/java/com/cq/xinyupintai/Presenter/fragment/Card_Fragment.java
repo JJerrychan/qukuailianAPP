@@ -2,6 +2,9 @@ package com.cq.xinyupintai.Presenter.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,19 +12,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-
 import com.cq.xinyupintai.Presenter.Adapter.CardAdapter;
 import com.cq.xinyupintai.Presenter.activity.EditCard;
-import com.cq.xinyupintai.Presenter.activity.MainView;
-import com.cq.xinyupintai.Presenter.activity.register;
 import com.cq.xinyupintai.R;
 import com.xuexiang.xui.widget.button.ButtonView;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +23,9 @@ import java.util.List;
 public class Card_Fragment extends Fragment implements View.OnClickListener {
 
 
-    @NotNull
-    public static Card_Fragment newInstance(String param1) {
-        Card_Fragment fragment = new Card_Fragment();
+    public static Card_Fragment newInstance() {
         Bundle args = new Bundle();
-        args.putString("param1", param1);
+        Card_Fragment fragment = new Card_Fragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,7 +43,7 @@ public class Card_Fragment extends Fragment implements View.OnClickListener {
         add_btn.setOnClickListener(this);
         RecyclerView rcCard = view.findViewById(R.id.rc_settle);
         rcCard.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rcCard.setAdapter(new CardAdapter(getActivity(),TextInit()));
+        rcCard.setAdapter(new CardAdapter(getActivity(), TextInit()));
 //        Button add_btn=view.findViewById(R.id.add_btn);
 //        Button edit_btn=view.findViewById(R.id.edit_btn);
 //        Button push_btn=view.findViewById(R.id.push_btn);
@@ -70,9 +62,9 @@ public class Card_Fragment extends Fragment implements View.OnClickListener {
     private List<String> TextInit() {
         List<String> text = new ArrayList<>();
 
-        for (int i = 0; i < 20; ++i) {
+        for (int i = 0; i < 5; ++i) {
             String itemText = "";
-            itemText = "00"+i+"/测试第" + (i + 1) + "张卡";
+            itemText = "00" + i + "/测试第" + (i + 1) + "张卡";
             text.add(itemText);
         }
 

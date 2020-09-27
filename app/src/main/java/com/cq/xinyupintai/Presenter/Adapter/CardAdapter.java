@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cq.xinyupintai.Presenter.activity.EvaActivity;
+import com.cq.xinyupintai.Presenter.activity.CardDetailActivity;
 import com.cq.xinyupintai.R;
 
 import java.util.List;
@@ -42,9 +42,9 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.TextHolder> {
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //卡详细
-//                Intent intent = new Intent(mContext, EvaActivity.class);
-//                mContext.startActivity(intent);
+                //跳转卡详细activity
+                Intent intent = new Intent(mContext, CardDetailActivity.class);
+                mContext.startActivity(intent);
             }
         });
     }

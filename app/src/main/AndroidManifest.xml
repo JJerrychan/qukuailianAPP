@@ -3,18 +3,19 @@
     package="com.cq.xinyupintai">
 
     <application
-        android:icon="@mipmap/logo"
-        android:roundIcon="@mipmap/logo"
+        android:name=".myApplication"
         android:allowBackup="true"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".myApplication">
-        <activity android:name=".Presenter.activity.BossActivity"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".Presenter.activity.CardDetailActivity"></activity>
+        <activity android:name=".Presenter.activity.BossActivity" />
         <activity android:name=".Presenter.activity.ClosingStockActivity" />
         <activity android:name=".Presenter.activity.register" />
-        <activity android:name=".Presenter.activity.StatisticsActivity"/>
-        <activity android:name=".Presenter.activity.EvaActivity"/>
+        <activity android:name=".Presenter.activity.StatisticsActivity" />
+        <activity android:name=".Presenter.activity.EvaActivity" />
         <activity
             android:name=".Presenter.activity.MainView"
             android:label="@string/app_name">
@@ -24,10 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Presenter.activity.EditCard"></activity>
+        <activity android:name=".Presenter.activity.EditCard" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
-
 
 </manifest>

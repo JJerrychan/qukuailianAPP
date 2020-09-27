@@ -1,7 +1,5 @@
 package com.cq.xinyupintai.Presenter.fragment;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,19 +7,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-
 import com.cq.xinyupintai.Presenter.Adapter.RcBossHomeAdapter;
 import com.cq.xinyupintai.Presenter.Adapter.messagePageAdapter;
-import com.cq.xinyupintai.Presenter.activity.StatisticsActivity;
 import com.cq.xinyupintai.R;
 import com.google.android.material.tabs.TabLayout;
 

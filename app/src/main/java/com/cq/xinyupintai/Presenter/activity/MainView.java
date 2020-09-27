@@ -22,7 +22,6 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AbsSpinner;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
