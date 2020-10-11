@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cq.xinyupintai.Presenter.Adapter.UserEvaAdapter;
 import com.cq.xinyupintai.R;
+import com.xuexiang.xui.XUI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,6 @@ public class User_eva_fragment extends Fragment {
             itemText = "测试第" + (i+1) + "条评语";
             text.add(itemText);
         }
-
         return text;
     }
     public static User_eva_fragment newInstance(int index) {

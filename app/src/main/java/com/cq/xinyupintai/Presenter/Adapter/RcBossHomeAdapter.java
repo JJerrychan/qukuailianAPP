@@ -42,7 +42,6 @@ public class RcBossHomeAdapter extends RecyclerView.Adapter<RcBossHomeAdapter.Te
             }
         });
     }
-
     @Override
     public int getItemCount() {                             //获取项目数量
         return texts.size();

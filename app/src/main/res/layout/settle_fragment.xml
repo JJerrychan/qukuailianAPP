@@ -3,69 +3,83 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="15dp"
-    android:id="@+id/rc_settle"/>
-        <LinearLayout
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_settle"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:padding="15dp"
+        android:layout_below="@+id/LL_1"/>
+
+    <LinearLayout
             android:id="@+id/LL_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/rc_settle"
-            android:layout_margin="20dp">
-            <Button
-                android:id="@+id/bd_settle_add"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="30dp"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:background="@drawable/flatbutton"
-                android:textSize="30px"
-                android:text="添加项目"/>
-            <TextView
-                android:id="@+id/tv_settle_1"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="合计消费（元）"
-                android:layout_gravity="center"/>
-            <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="消费金额"
-                app:met_floatingLabel="normal"
-                app:met_floatingLabelTextColor="#B2EBF2"
-                app:met_floatingLabelText="金额"
-                android:id="@+id/ed_settle_money"
-                android:enabled="true"
-                app:met_underlineColor="#00796B"
-                app:met_floatingLabelAnimating="true"
-                android:textColor="#212121"/>
-
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="35dp">
+        <com.xuexiang.xui.widget.textview.supertextview.SuperButton
+            style="@style/SuperButton.Blue"
+            android:id="@+id/bd_settle_add"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="30dp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:gravity="center"
+            android:background="@drawable/flatbutton"
+            android:textSize="50px"
+            android:text="添加项目"
+            app:sCornersRadius="8dp"/>
+        <com.xuexiang.xui.widget.textview.supertextview.SuperButton
+            style="@style/SuperButton.Blue"
+            android:id="@+id/bd_settle_pay"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="30dp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:gravity="center"
+            android:background="@drawable/flatbutton"
+            android:textSize="50px"
+            android:text="结算"
+            app:sCornersRadius="8dp"/>
+        <com.xuexiang.xui.widget.textview.supertextview.SuperButton
+            style="@style/SuperButton.Blue"
+            android:id="@+id/bd_settle_cash"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="30dp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:gravity="center"
+            android:background="@drawable/flatbutton"
+            android:textSize="50px"
+            android:text="收款"
+            app:sCornersRadius="8dp"/>
         </LinearLayout>
     <LinearLayout
+        android:id="@+id/LL_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/LL_1"
-        android:layout_margin="20dp">
+        android:layout_below="@+id/rc_settle">
         <TextView
-            android:id="@+id/tv_settle_2"
+            android:id="@+id/tv_settle_1"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="顾客手机号："/>
+            android:text="合计消费（元）"
+            android:layout_gravity="center"/>
         <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
-            android:id="@+id/ed_settle_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入顾客手机号"
+            android:hint="消费金额"
             app:met_floatingLabel="normal"
             app:met_floatingLabelTextColor="#B2EBF2"
-            app:met_floatingLabelText="手机号"
+            app:met_floatingLabelText="金额"
+            android:id="@+id/ed_settle_money"
             android:enabled="true"
             app:met_underlineColor="#00796B"
             app:met_floatingLabelAnimating="true"
