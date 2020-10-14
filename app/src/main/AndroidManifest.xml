@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cq.xinyupintai">
-
     <application
+        android:usesCleartextTraffic="true"
         android:name=".myApplication"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -27,7 +27,6 @@
         </activity>
         <activity android:name=".Presenter.activity.EditCard" />
     </application>
-
     <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

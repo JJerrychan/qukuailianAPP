@@ -42,7 +42,7 @@ dependencies {
     implementation 'com.unstoppable:submitbutton:1.1.0'
     implementation 'me.spark:submitbutton:1.0.1'
     implementation 'com.github.xuexiangjys:XHttp2:2.0.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
 

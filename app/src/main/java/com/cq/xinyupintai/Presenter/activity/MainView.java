@@ -27,13 +27,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.cq.xinyupintai.Presenter.WebSocketTest;
 import com.cq.xinyupintai.Presenter.activity.Titanic.Titanic;
 import com.cq.xinyupintai.Presenter.activity.Titanic.TitanicTextView;
-import com.cq.xinyupintai.Presenter.activity.bankcard.bankcard;
 import com.cq.xinyupintai.R;
+import com.cq.xinyupintai.data.Object2Map;
+import com.cq.xinyupintai.data.model.RequestPackage;
+import com.cq.xinyupintai.data.model.RespondPackage;
+import com.cq.xinyupintai.data.model.Staff;
 
 public class MainView extends Activity implements View.OnClickListener {
+
+    private WebSocketTest wstest;
 
     private TextView register;
     private TextView forgetpass;
@@ -99,6 +106,9 @@ public class MainView extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        //WebSocket初始化
+        wstest = new WebSocketTest();
+        wstest.init();
 
         initview();
         initListerner();
@@ -144,8 +154,6 @@ public class MainView extends Activity implements View.OnClickListener {
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainView.this, bankcard.class);
-                startActivity(intent);
             }
         });
 
@@ -166,7 +174,6 @@ public class MainView extends Activity implements View.OnClickListener {
 
         //设置 密码的显示 或者 隐藏 以及 眼睛的动态变化
         etpassword = (EditText) findViewById(R.id.password);
-
         final Drawable[] drawables = etpassword.getCompoundDrawables();
         final int eyeWidth = drawables[2].getBounds().width();// 眼睛图标的宽度
         final Drawable drawableEyeOpen = getResources().getDrawable(R.mipmap.open_eye);
@@ -216,14 +223,50 @@ public class MainView extends Activity implements View.OnClickListener {
         animbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //登录逻辑
+                RequestPackage LoginRequest = new RequestPackage();
+                LoginRequest.setReqCode("B001001");
+                Staff staff = new Staff();
+                staff.setLogin_name(editinput.getText().toString());
+                staff.setPassword_hash(etpassword.getText().toString());
+                Object2Map o2m = new Object2Map();
+                try {
+                    LoginRequest.setData(o2m.Obj2Map(staff));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                wstest.sendData(LoginRequest);
+                final RespondPackage LoginPackage = wstest.getRespondPackage();
+
+
                 animbutton.startAnim();
+
+
+                Staff new_staff = new Staff();
+                try {
+                    new_staff = (Staff) LoginPackage.map2Obj(LoginPackage.getdata(), Staff.class);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-
-                        //跳转
-                        gotoNew();
+                        switch (LoginPackage.getrespId()) {
+                            case 0://登陆成功
+                                //跳转
+                                gotoNew();
+                                break;
+                            case 101://商家名或密码不正确
+                                Toast.makeText(MainView.this, "商家名或密码不正确!", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 102://商家已登录
+                                Toast.makeText(MainView.this, "不可重复登录," + LoginPackage.getMessage(), Toast.LENGTH_SHORT).show();
+                                break;
+                            case 111://未知错误
+                                Toast.makeText(MainView.this, "未知错误", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
                     }
                 }, 3000);
 
