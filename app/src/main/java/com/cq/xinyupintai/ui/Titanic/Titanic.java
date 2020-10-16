@@ -1,4 +1,4 @@
-package com.cq.xinyupintai.Presenter.activity.Titanic;
+package com.cq.xinyupintai.ui.Titanic;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;

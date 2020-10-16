@@ -22,13 +22,28 @@ import okhttp3.WebSocketListener;
 import okio.ByteString;
 
 public class WebSocketTest {
+
     // 每隔2秒发送一次心跳包，检测连接没有断开
-    private static final long HEART_BEAT_RATE = 2 * 1000;
+//    private static final long HEART_BEAT_RATE = 2 * 1000;
+//    private long sendTime = 0L;
+
+    private static volatile WebSocketTest WsInstance = null;//WS实例
     private static Gson gson = new Gson();
-    private long sendTime = 0L;
     private Handler mHandler = new Handler();
-    private WebSocket mSocket;
-    private RespondPackage respondPackage = new RespondPackage();
+    private static WebSocket mSocket;
+    private static RespondPackage respondPackage = new RespondPackage();
+
+    //获取Ws实例
+    public static WebSocketTest getInstance() {
+        if (WsInstance == null) {
+            synchronized (WebSocketTest.class) {
+                if (WsInstance == null) {
+                    WsInstance = new WebSocketTest();
+                }
+            }
+        }
+        return WsInstance;
+    }
 
     public static String buildRequestParams(Object params) {
         String jsonStr = gson.toJson(params);
@@ -51,7 +66,7 @@ public class WebSocketTest {
 //        }
 //    };
 
-    public void init() {
+    public static void init() {
         OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
                 .readTimeout(3, TimeUnit.SECONDS)//设置读取超时时间
                 .writeTimeout(3, TimeUnit.SECONDS)//设置写的超时时间
@@ -76,16 +91,16 @@ public class WebSocketTest {
         return result;
     }
 
-    private String sendHeart() {
-        String jsonHead = "";
-        Map<String, Object> mapHead = new HashMap<>();
-        mapHead.put("heart", "heart");
-        jsonHead = buildRequestParams(mapHead);
-        Log.e("TAG", "sendHeart：" + jsonHead);
-        return jsonHead;
-    }
+//    private String sendHeart() {
+//        String jsonHead = "";
+//        Map<String, Object> mapHead = new HashMap<>();
+//        mapHead.put("heart", "heart");
+//        jsonHead = buildRequestParams(mapHead);
+//        Log.e("TAG", "sendHeart：" + jsonHead);
+//        return jsonHead;
+//    }
 
-    private final class EchoWebSocketListener extends WebSocketListener {
+    private final static class EchoWebSocketListener extends WebSocketListener {
         @Override
         public void onFailure(@NotNull WebSocket webSocket, @NotNull Throwable t, @Nullable Response response) {
             super.onFailure(webSocket, t, response);

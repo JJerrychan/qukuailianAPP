@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Object2Map {
-    public Map<String, Object> Obj2Map(Object obj) throws Exception {
+    public static Map<String, Object> Obj2Map(Object obj) throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field field : fields) {
@@ -17,7 +17,7 @@ public class Object2Map {
     }
 
     //2、map转换为object
-    public Object map2Obj(Map<String, Object> map, Class<?> clz) throws Exception {
+    public static Object map2Obj(Map<String, Object> map, Class<?> clz) throws Exception {
         Object obj = clz.newInstance();
         Field[] declaredFields = obj.getClass().getDeclaredFields();
         for (Field field : declaredFields) {

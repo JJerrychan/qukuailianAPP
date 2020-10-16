@@ -40,7 +40,7 @@
             android:background="@drawable/background2">
 
 
-            <com.cq.xinyupintai.Presenter.activity.Titanic.TitanicTextView
+            <com.cq.xinyupintai.ui.Titanic.TitanicTextView
                 android:id="@+id/id_hello"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                 android:background="@mipmap/delete" />
 
 
-            <com.cq.xinyupintai.Presenter.activity.Animbutton
+            <com.cq.xinyupintai.ui.Animbutton
                 android:id="@+id/bt"
                 android:layout_width="240dp"
                 android:layout_height="50dp"

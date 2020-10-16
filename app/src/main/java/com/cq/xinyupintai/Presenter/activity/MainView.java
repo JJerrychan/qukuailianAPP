@@ -30,13 +30,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cq.xinyupintai.Presenter.WebSocketTest;
-import com.cq.xinyupintai.Presenter.activity.Titanic.Titanic;
-import com.cq.xinyupintai.Presenter.activity.Titanic.TitanicTextView;
+import com.cq.xinyupintai.ui.Titanic.Titanic;
+import com.cq.xinyupintai.ui.Titanic.TitanicTextView;
 import com.cq.xinyupintai.R;
 import com.cq.xinyupintai.data.Object2Map;
 import com.cq.xinyupintai.data.model.RequestPackage;
 import com.cq.xinyupintai.data.model.RespondPackage;
 import com.cq.xinyupintai.data.model.Staff;
+import com.cq.xinyupintai.ui.Animbutton;
 
 public class MainView extends Activity implements View.OnClickListener {
 
@@ -106,9 +107,7 @@ public class MainView extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        //WebSocket初始化
-        wstest = new WebSocketTest();
-        wstest.init();
+        wstest = WebSocketTest.getInstance();
 
         initview();
         initListerner();
@@ -223,35 +222,27 @@ public class MainView extends Activity implements View.OnClickListener {
         animbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //登录逻辑
                 RequestPackage LoginRequest = new RequestPackage();
                 LoginRequest.setReqCode("B001001");
                 Staff staff = new Staff();
                 staff.setLogin_name(editinput.getText().toString());
                 staff.setPassword_hash(etpassword.getText().toString());
-                Object2Map o2m = new Object2Map();
                 try {
-                    LoginRequest.setData(o2m.Obj2Map(staff));
+                    LoginRequest.setData(Object2Map.Obj2Map(staff));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 wstest.sendData(LoginRequest);
-                final RespondPackage LoginPackage = wstest.getRespondPackage();
-
+//                final RespondPackage LoginPackage = wstest.getRespondPackage();
 
                 animbutton.startAnim();
-
-
-                Staff new_staff = new Staff();
-                try {
-                    new_staff = (Staff) LoginPackage.map2Obj(LoginPackage.getdata(), Staff.class);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
 
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        RespondPackage LoginPackage = wstest.getRespondPackage();
                         switch (LoginPackage.getrespId()) {
                             case 0://登陆成功
                                 //跳转

@@ -1,4 +1,4 @@
-package com.cq.xinyupintai.Presenter.activity;
+package com.cq.xinyupintai.ui;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
