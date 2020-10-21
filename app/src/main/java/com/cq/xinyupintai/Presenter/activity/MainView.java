@@ -15,6 +15,7 @@ import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.text.style.AbsoluteSizeSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -38,6 +39,8 @@ import com.cq.xinyupintai.data.model.RequestPackage;
 import com.cq.xinyupintai.data.model.RespondPackage;
 import com.cq.xinyupintai.data.model.Staff;
 import com.cq.xinyupintai.ui.Animbutton;
+
+import java.util.Map;
 
 public class MainView extends Activity implements View.OnClickListener {
 
@@ -230,12 +233,15 @@ public class MainView extends Activity implements View.OnClickListener {
                 staff.setLogin_name(editinput.getText().toString());
                 staff.setPassword_hash(etpassword.getText().toString());
                 try {
-                    LoginRequest.setData(Object2Map.Obj2Map(staff));
+                    Map<String, Object> map = Object2Map.Obj2Map(staff);
+                    map.put("Login_name",staff.getLogin_name());
+                    map.put("Password_hash",staff.getPassword_hash());
+                    LoginRequest.setData(map);
+                    //Log.e("TAG", "onClick: " + Object2Map.Obj2Map(staff).toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 wstest.sendData(LoginRequest);
-//                final RespondPackage LoginPackage = wstest.getRespondPackage();
 
                 animbutton.startAnim();
 

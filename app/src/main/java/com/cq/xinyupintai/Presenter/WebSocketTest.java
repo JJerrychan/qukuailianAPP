@@ -1,5 +1,6 @@
 package com.cq.xinyupintai.Presenter;
 
+import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
 
@@ -10,8 +11,6 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -23,15 +22,15 @@ import okio.ByteString;
 
 public class WebSocketTest {
 
+    private static volatile WebSocketTest WsInstance = null;//WS实例
+    private static Boolean isDead = true;
+    private static Gson gson = new Gson();
+    private static WebSocket mSocket;
+    private static RespondPackage respondPackage = new RespondPackage();
     // 每隔2秒发送一次心跳包，检测连接没有断开
 //    private static final long HEART_BEAT_RATE = 2 * 1000;
 //    private long sendTime = 0L;
-
-    private static volatile WebSocketTest WsInstance = null;//WS实例
-    private static Gson gson = new Gson();
     private Handler mHandler = new Handler();
-    private static WebSocket mSocket;
-    private static RespondPackage respondPackage = new RespondPackage();
 
     //获取Ws实例
     public static WebSocketTest getInstance() {
@@ -50,8 +49,19 @@ public class WebSocketTest {
         return jsonStr;
     }
 
-    public RespondPackage getRespondPackage() {
-        return respondPackage;
+    public static void init() {
+        OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
+                .readTimeout(3, TimeUnit.SECONDS)//设置读取超时时间
+                .writeTimeout(3, TimeUnit.SECONDS)//设置写的超时时间
+                .connectTimeout(3, TimeUnit.SECONDS)//设置连接超时时间
+                .build();
+        Request request = new Request.Builder().url("ws://172.16.16.59:8888/cenyou").build();
+        EchoWebSocketListener socketListener = new EchoWebSocketListener();
+        // 刚进入界面，就开启心跳检测
+        // mHandler.postDelayed(heartBeatRunnable, HEART_BEAT_RATE);
+        mSocket = mOkHttpClient.newWebSocket(request, socketListener);
+
+        mOkHttpClient.dispatcher().executorService().shutdown();
     }
 // 发送心跳包
 //    private Runnable heartBeatRunnable = new Runnable() {
@@ -66,19 +76,8 @@ public class WebSocketTest {
 //        }
 //    };
 
-    public static void init() {
-        OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
-                .readTimeout(3, TimeUnit.SECONDS)//设置读取超时时间
-                .writeTimeout(3, TimeUnit.SECONDS)//设置写的超时时间
-                .connectTimeout(3, TimeUnit.SECONDS)//设置连接超时时间
-                .build();
-        Request request = new Request.Builder().url("ws://172.16.16.59:8888/cenyou").build();
-        EchoWebSocketListener socketListener = new EchoWebSocketListener();
-        // 刚进入界面，就开启心跳检测
-        // mHandler.postDelayed(heartBeatRunnable, HEART_BEAT_RATE);
-        mSocket = mOkHttpClient.newWebSocket(request, socketListener);
-
-        mOkHttpClient.dispatcher().executorService().shutdown();
+    public RespondPackage getRespondPackage() {
+        return respondPackage;
     }
 
     public Boolean sendData(RequestPackage requestP) {
@@ -104,13 +103,16 @@ public class WebSocketTest {
         @Override
         public void onFailure(@NotNull WebSocket webSocket, @NotNull Throwable t, @Nullable Response response) {
             super.onFailure(webSocket, t, response);
-            Log.v("WebSocket", "Failure:" + t.toString());
+            Log.e("WebSocket", "Failure:" + t.getMessage());
+//            Toast.makeText(, "连接服务器失败", Toast.LENGTH_SHORT).show();
+            isDead = true;
         }
 
         @Override
         public void onClosed(@NotNull WebSocket webSocket, int code, @NotNull String reason) {
             super.onClosed(webSocket, code, reason);
             Log.v("WebSocket", "Closed:" + reason);
+            isDead = true;
         }
 
         @Override
@@ -137,6 +139,7 @@ public class WebSocketTest {
             super.onOpen(webSocket, response);
             mSocket = webSocket;
             Log.e("WebSocket", "连接成功!");
+            isDead = false;
         }
     }
 }

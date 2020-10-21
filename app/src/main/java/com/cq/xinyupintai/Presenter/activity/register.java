@@ -1,7 +1,6 @@
 package com.cq.xinyupintai.Presenter.activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,12 +11,17 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cq.xinyupintai.Presenter.Dialog.MyBottomDialog;
+import com.cq.xinyupintai.Presenter.WebSocketTest;
 import com.cq.xinyupintai.R;
+import com.cq.xinyupintai.data.Object2Map;
+import com.cq.xinyupintai.data.model.Organization;
+import com.cq.xinyupintai.data.model.RequestPackage;
 import com.smarttop.library.bean.City;
 import com.smarttop.library.bean.County;
 import com.smarttop.library.bean.Province;
@@ -26,16 +30,21 @@ import com.smarttop.library.db.manager.AddressDictManager;
 import com.smarttop.library.widget.AddressSelector;
 import com.smarttop.library.widget.OnAddressSelectedListener;
 
-public class register extends Activity implements View.OnClickListener , OnAddressSelectedListener,
-        AddressSelector.OnDialogCloseListener{
+import java.util.Map;
 
+public class register extends Activity implements View.OnClickListener, OnAddressSelectedListener,
+        AddressSelector.OnDialogCloseListener {
+
+    private WebSocketTest wstest = WebSocketTest.getInstance();
+    private RequestPackage regPack = new RequestPackage();
+    private Organization organization = new Organization();
 
     private TextView textView;
     private EditText editText_1, editText_2, editText_3, editText_4, editText_5,
             editText_6, editText_7, editText_8, editText_9, editText_10;
     private ImageView imageView_1, imageView_2, imageView_3, imageView_4, imageView_5,
             imageView_6, imageView_7, imageView_8, imageView_9, imageView_10;
-
+    private Button submit_btn;
 
     private boolean isHideFirst = true;
 
@@ -47,9 +56,124 @@ public class register extends Activity implements View.OnClickListener , OnAddre
     private String cityCode;
     private String countyCode;
     private String streetCode;
+    private TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+        }
 
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+            if (editText_1.getEditableText().length() >= 1) {
+                imageView_1.setVisibility(View.VISIBLE);
+            } else {
+                imageView_1.setVisibility(View.GONE);
+            }
+
+            if (editText_2.getEditableText().length() >= 1) {
+                imageView_2.setVisibility(View.VISIBLE);
+            } else {
+                imageView_2.setVisibility(View.GONE);
+            }
+
+            if (editText_3.getEditableText().length() >= 1) {
+                imageView_3.setVisibility(View.VISIBLE);
+            } else {
+                imageView_3.setVisibility(View.GONE);
+            }
+
+            if (editText_4.getEditableText().length() >= 1) {
+                imageView_4.setVisibility(View.VISIBLE);
+            } else {
+                imageView_4.setVisibility(View.GONE);
+            }
+
+            if (editText_5.getEditableText().length() >= 1) {
+                imageView_5.setVisibility(View.VISIBLE);
+            } else {
+                imageView_5.setVisibility(View.GONE);
+            }
+
+            if (editText_6.getEditableText().length() >= 1) {
+                imageView_6.setVisibility(View.VISIBLE);
+            } else {
+                imageView_6.setVisibility(View.GONE);
+            }
+
+            if (editText_7.getEditableText().length() >= 1) {
+                imageView_7.setVisibility(View.VISIBLE);
+            } else {
+                imageView_7.setVisibility(View.GONE);
+            }
+
+            if (editText_8.getEditableText().length() >= 1) {
+                imageView_8.setVisibility(View.VISIBLE);
+            } else {
+                imageView_8.setVisibility(View.GONE);
+            }
+
+            if (editText_9.getEditableText().length() >= 1) {
+                imageView_9.setVisibility(View.VISIBLE);
+            } else {
+                imageView_9.setVisibility(View.GONE);
+            }
+
+            if (editText_10.getEditableText().length() >= 1) {
+                imageView_10.setVisibility(View.VISIBLE);
+            } else {
+                imageView_10.setVisibility(View.GONE);
+            }
+
+        }
+
+    };
+
+    //设置三级地址选择器 仿IOS 版本
+//    private void getAddress(){
+//        CityPicker cityPicker= new CityPicker.Builder(register.this)
+//                .textSize(14)
+//                .title("地址选择")
+//                .titleBackgroundColor("#ffffff")
+//                .confirTextColor("#696969")
+//                .cancelTextColor("#696969")
+//                .province("广东省")
+//                .city("广州市")
+//                .district("海珠区")
+//                .textColor(Color.parseColor("#000000"))
+//                .provinceCyclic(true)
+//                .cityCyclic(false)
+//                .districtCyclic(false)
+//                .visibleItemsCount(7)
+//                .itemPadding(10)
+//                .onlyShowProvinceAndCity(false)
+//                .build();
+//        cityPicker.show();
+//
+//        //监听事件 获取结果
+//        cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
+//            @Override
+//            public void onSelected(String... citySelected) {
+//                //省份
+//                String province = citySelected[0];
+//                //城市
+//                String city = citySelected[1];
+//                //区县
+//                String district = citySelected[2];
+//                //邮编
+//                String code = citySelected[3];
+//                //为展示区赋值
+//                selectcity.setText(province.trim() + "-" + city.trim() + "-" + district.trim());
+//            }
+//        });
+//
+//    }
+    private MyBottomDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +186,11 @@ public class register extends Activity implements View.OnClickListener , OnAddre
         initListener();
 
 
-
         textView = findViewById(R.id.tv_back);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(register.this, MainView.class);
-                startActivity(intent);
+                finish();
             }
 
         });
@@ -162,7 +284,6 @@ public class register extends Activity implements View.OnClickListener , OnAddre
         );
 
 
-
         selectcity = findViewById(R.id.cityselectview);
         AddressSelector selector = new AddressSelector(this);
         selectcity.setOnClickListener(this);
@@ -180,7 +301,7 @@ public class register extends Activity implements View.OnClickListener , OnAddre
         selector.setOnAddressSelectedListener(new OnAddressSelectedListener() {
             @Override
             public void onAddressSelected(Province province, City city, County county, Street street) {
-                String address = (province == null ?"":province.name) +
+                String address = (province == null ? "" : province.name) +
                         (city == null ? "" : city.name) + (county == null ? "" : county.name) +
                         (street == null ? "" : street.name);
 
@@ -190,7 +311,6 @@ public class register extends Activity implements View.OnClickListener , OnAddre
 
 
         });
-
 
 
         //设置三级地址选择器 仿IOS 版本
@@ -203,53 +323,12 @@ public class register extends Activity implements View.OnClickListener , OnAddre
 //    });
 
 
-
     }
-
-    //设置三级地址选择器 仿IOS 版本
-//    private void getAddress(){
-//        CityPicker cityPicker= new CityPicker.Builder(register.this)
-//                .textSize(14)
-//                .title("地址选择")
-//                .titleBackgroundColor("#ffffff")
-//                .confirTextColor("#696969")
-//                .cancelTextColor("#696969")
-//                .province("广东省")
-//                .city("广州市")
-//                .district("海珠区")
-//                .textColor(Color.parseColor("#000000"))
-//                .provinceCyclic(true)
-//                .cityCyclic(false)
-//                .districtCyclic(false)
-//                .visibleItemsCount(7)
-//                .itemPadding(10)
-//                .onlyShowProvinceAndCity(false)
-//                .build();
-//        cityPicker.show();
-//
-//        //监听事件 获取结果
-//        cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
-//            @Override
-//            public void onSelected(String... citySelected) {
-//                //省份
-//                String province = citySelected[0];
-//                //城市
-//                String city = citySelected[1];
-//                //区县
-//                String district = citySelected[2];
-//                //邮编
-//                String code = citySelected[3];
-//                //为展示区赋值
-//                selectcity.setText(province.trim() + "-" + city.trim() + "-" + district.trim());
-//            }
-//        });
-//
-//    }
-
 
     //对变量进行初始化
     private void initView() {
 
+        submit_btn = findViewById(R.id.submit_btn);
 //        address = findViewById(R.id.cityselectview);
 //        address.setOnClickListener(this);
 
@@ -314,85 +393,9 @@ public class register extends Activity implements View.OnClickListener , OnAddre
         imageView_8.setOnClickListener(this);
         imageView_9.setOnClickListener(this);
         imageView_10.setOnClickListener(this);
+
+        submit_btn.setOnClickListener(this);
     }
-
-    private TextWatcher textWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-
-            if (editText_1.getEditableText().length() >= 1) {
-                imageView_1.setVisibility(View.VISIBLE);
-            } else {
-                imageView_1.setVisibility(View.GONE);
-            }
-
-            if (editText_2.getEditableText().length() >= 1) {
-                imageView_2.setVisibility(View.VISIBLE);
-            } else {
-                imageView_2.setVisibility(View.GONE);
-            }
-
-            if (editText_3.getEditableText().length() >= 1) {
-                imageView_3.setVisibility(View.VISIBLE);
-            } else {
-                imageView_3.setVisibility(View.GONE);
-            }
-
-            if (editText_4.getEditableText().length() >= 1) {
-                imageView_4.setVisibility(View.VISIBLE);
-            } else {
-                imageView_4.setVisibility(View.GONE);
-            }
-
-            if (editText_5.getEditableText().length() >= 1) {
-                imageView_5.setVisibility(View.VISIBLE);
-            } else {
-                imageView_5.setVisibility(View.GONE);
-            }
-
-            if (editText_6.getEditableText().length() >= 1) {
-                imageView_6.setVisibility(View.VISIBLE);
-            } else {
-                imageView_6.setVisibility(View.GONE);
-            }
-
-            if (editText_7.getEditableText().length() >= 1) {
-                imageView_7.setVisibility(View.VISIBLE);
-            } else {
-                imageView_7.setVisibility(View.GONE);
-            }
-
-            if (editText_8.getEditableText().length() >= 1) {
-                imageView_8.setVisibility(View.VISIBLE);
-            } else {
-                imageView_8.setVisibility(View.GONE);
-            }
-
-            if (editText_9.getEditableText().length() >= 1) {
-                imageView_9.setVisibility(View.VISIBLE);
-            } else {
-                imageView_9.setVisibility(View.GONE);
-            }
-
-            if (editText_10.getEditableText().length() >= 1) {
-                imageView_10.setVisibility(View.VISIBLE);
-            } else {
-                imageView_10.setVisibility(View.GONE);
-            }
-
-        }
-
-    };
 
     @Override
     public void onClick(View v) {
@@ -428,12 +431,38 @@ public class register extends Activity implements View.OnClickListener , OnAddre
             case R.id.clearn_10:
                 editText_10.setText("");
                 break;
+            case R.id.submit_btn:
+                regPack.setReqCode("B002001");
+                organization.setLogin_name("test1");
+                organization.setPassword_hash("test");
+                organization.setOrg_name("newtest公司");
+                organization.setUnit_code("002001");
+                organization.setProvince("广东");
+                organization.setCity("珠海");
+                organization.setDistrict("香洲");
+                organization.setStreet("前山街道");
+                organization.setRoad("梅华路");
+                organization.setDoor("100号");
+                organization.setPhone("13765515315");
+                organization.setDirector("test1");
+
+                try {
+                    Map<String, Object> map = Object2Map.Obj2Map(organization);
+                    map.put("Login_name",organization.getLogin_name());
+                    map.put("Password_hash",organization.getPassword_hash());
+                    map.put("Identity_no","123456");
+                    regPack.setData(map);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                wstest.sendData(regPack);
+                break;
 
         }
 
-        if(dialog != null){
+        if (dialog != null) {
             dialog.show();
-        }else {
+        } else {
             dialog = new MyBottomDialog(this);
             //地址选取监听
             dialog.setOnAddressSelectedListener(this);
@@ -453,12 +482,9 @@ public class register extends Activity implements View.OnClickListener , OnAddre
 
     }
 
-
-    private MyBottomDialog dialog;
-
     @Override
     public void dialogclose() {
-        if(dialog != null){
+        if (dialog != null) {
             dialog.dismiss();
         }
     }
@@ -487,7 +513,7 @@ public class register extends Activity implements View.OnClickListener , OnAddre
 
     }
 
-    private void getSeleltArea(){
+    private void getSeleltArea() {
 
         String province = addressDictManager.getProvince(provinceCode);
         String city = addressDictManager.getCity(cityCode);

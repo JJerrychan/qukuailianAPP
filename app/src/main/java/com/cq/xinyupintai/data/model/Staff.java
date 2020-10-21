@@ -1,18 +1,14 @@
 package com.cq.xinyupintai.data.model;
 
-public class Staff {
-    private int Staff_id;
-    private String Login_name;
-    private String Password_hash;
-    private String Name;
-    private String Identity_no;
-    private String Mobile_phone;
-    private String Staff_no;
-    private String Role;
-    private int Privilege;
-    private int Org_id;
-    private String Gmt_create;
-    private String Gmt_modified;
+public class Staff extends User {
+    private int Staff_id;       //唯一ID
+    private String Name;        //姓名
+    private String Identity_no; //身份号码
+    private String Mobile_phone;//手机号码
+    private String Staff_no;    //工号
+    private String Role;        //用户角色（O操作员Oper，A管理员Admin，B业主Boss）
+    private int Privilege;      //权限（从1-127）
+    private int Org_id;         //从属组织的ID
 
     public int getStaff_id() {
         return Staff_id;
@@ -78,35 +74,4 @@ public class Staff {
         Org_id = org_id;
     }
 
-    public String getGmt_create() {
-        return Gmt_create;
-    }
-
-    public void setGmt_create(String gmt_create) {
-        Gmt_create = gmt_create;
-    }
-
-    public String getGmt_modified() {
-        return Gmt_modified;
-    }
-
-    public void setGmt_modified(String gmt_modified) {
-        Gmt_modified = gmt_modified;
-    }
-
-    public String getLogin_name() {
-        return Login_name;
-    }
-
-    public void setLogin_name(String login_name) {
-        Login_name = login_name;
-    }
-
-    public String getPassword_hash() {
-        return Password_hash;
-    }
-
-    public void setPassword_hash(String password_hash) {
-        Password_hash = password_hash;
-    }
 }
