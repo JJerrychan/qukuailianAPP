@@ -9,9 +9,9 @@ public class Organization extends User {
     private String Org_shortname;   //组织简称
     private String Unit_code;       //组织机构代码
     private String Org_type;        //组织类别（商家V，运营商O，代理商A，银行B）
-    private String Province;
-    private String City;
-    private String District;
+    private String Province_id;
+    private String City_id;
+    private String District_id;
     private String Street;
     private String Road;
     private String Door;
@@ -63,28 +63,28 @@ public class Organization extends User {
         Org_type = org_type;
     }
 
-    public String getProvince() {
-        return Province;
+    public String getProvince_id() {
+        return Province_id;
     }
 
-    public void setProvince(String province) {
-        Province = province;
+    public void setProvince_id(String province_id) {
+        Province_id = province_id;
     }
 
-    public String getCity() {
-        return City;
+    public String getCity_id() {
+        return City_id;
     }
 
-    public void setCity(String city) {
-        City = city;
+    public void setCity_id(String city_id) {
+        City_id = city_id;
     }
 
-    public String getDistrict() {
-        return District;
+    public String getDistrict_id() {
+        return District_id;
     }
 
-    public void setDistrict(String district) {
-        District = district;
+    public void setDistrict_id(String district_id) {
+        District_id = district_id;
     }
 
     public String getStreet() {

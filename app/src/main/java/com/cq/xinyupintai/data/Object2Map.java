@@ -1,5 +1,9 @@
 package com.cq.xinyupintai.data;
 
+import android.util.Log;
+
+import org.apache.commons.lang3.reflect.FieldUtils;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -8,7 +12,7 @@ import java.util.Map;
 public class Object2Map {
     public static Map<String, Object> Obj2Map(Object obj) throws Exception {
         Map<String, Object> map = new HashMap<String, Object>();
-        Field[] fields = obj.getClass().getDeclaredFields();
+        Field[] fields = FieldUtils.getAllFields(obj.getClass());
         for (Field field : fields) {
             field.setAccessible(true);
             map.put(field.getName(), field.get(obj));
@@ -30,4 +34,5 @@ public class Object2Map {
         }
         return obj;
     }
+
 }

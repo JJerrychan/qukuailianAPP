@@ -3,6 +3,8 @@ package com.cq.xinyupintai.Presenter.activity;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cq.xinyupintai.Presenter.Dialog.MyBottomDialog;
 import com.cq.xinyupintai.Presenter.WebSocketTest;
@@ -22,6 +25,7 @@ import com.cq.xinyupintai.R;
 import com.cq.xinyupintai.data.Object2Map;
 import com.cq.xinyupintai.data.model.Organization;
 import com.cq.xinyupintai.data.model.RequestPackage;
+import com.cq.xinyupintai.data.model.RespondPackage;
 import com.smarttop.library.bean.City;
 import com.smarttop.library.bean.County;
 import com.smarttop.library.bean.Province;
@@ -437,9 +441,9 @@ public class register extends Activity implements View.OnClickListener, OnAddres
                 organization.setPassword_hash("test");
                 organization.setOrg_name("newtest公司");
                 organization.setUnit_code("002001");
-                organization.setProvince("广东");
-                organization.setCity("珠海");
-                organization.setDistrict("香洲");
+                organization.setProvince_id("广东");
+                organization.setCity_id("珠海");
+                organization.setDistrict_id("香洲");
                 organization.setStreet("前山街道");
                 organization.setRoad("梅华路");
                 organization.setDoor("100号");
@@ -447,15 +451,30 @@ public class register extends Activity implements View.OnClickListener, OnAddres
                 organization.setDirector("test1");
 
                 try {
-                    Map<String, Object> map = Object2Map.Obj2Map(organization);
-                    map.put("Login_name",organization.getLogin_name());
-                    map.put("Password_hash",organization.getPassword_hash());
-                    map.put("Identity_no","123456");
+                    Map<String, Object> map = (Map<String, Object>) Object2Map.Obj2Map(organization);
+                    map.put("Identity_no", "123456");
                     regPack.setData(map);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 wstest.sendData(regPack);
+
+                RespondPackage RegRespond = wstest.getRespondPackage();
+                switch (RegRespond.getrespId()) {
+                    case 0://注册成功
+                        Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
+                        finish();
+                        break;
+                    case 110:
+                        Toast.makeText(this, "有未填写的数据", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 101:
+                        Toast.makeText(this, RegRespond.getMessage(), Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        Toast.makeText(this, "注册失败", Toast.LENGTH_SHORT).show();
+                        break;
+                }
                 break;
 
         }

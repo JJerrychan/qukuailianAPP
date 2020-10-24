@@ -15,7 +15,6 @@ import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.text.style.AbsoluteSizeSpan;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -234,10 +233,7 @@ public class MainView extends Activity implements View.OnClickListener {
                 staff.setPassword_hash(etpassword.getText().toString());
                 try {
                     Map<String, Object> map = Object2Map.Obj2Map(staff);
-                    map.put("Login_name",staff.getLogin_name());
-                    map.put("Password_hash",staff.getPassword_hash());
                     LoginRequest.setData(map);
-                    //Log.e("TAG", "onClick: " + Object2Map.Obj2Map(staff).toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -248,8 +244,8 @@ public class MainView extends Activity implements View.OnClickListener {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        RespondPackage LoginPackage = wstest.getRespondPackage();
-                        switch (LoginPackage.getrespId()) {
+                        RespondPackage LoginRespond = wstest.getRespondPackage();
+                        switch (LoginRespond.getrespId()) {
                             case 0://登陆成功
                                 //跳转
                                 gotoNew();
@@ -258,7 +254,7 @@ public class MainView extends Activity implements View.OnClickListener {
                                 Toast.makeText(MainView.this, "商家名或密码不正确!", Toast.LENGTH_SHORT).show();
                                 break;
                             case 102://商家已登录
-                                Toast.makeText(MainView.this, "不可重复登录," + LoginPackage.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainView.this, "不可重复登录," + LoginRespond.getMessage(), Toast.LENGTH_SHORT).show();
                                 break;
                             case 111://未知错误
                                 Toast.makeText(MainView.this, "未知错误", Toast.LENGTH_SHORT).show();
