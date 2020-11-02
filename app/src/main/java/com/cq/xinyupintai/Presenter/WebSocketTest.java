@@ -99,6 +99,21 @@ public class WebSocketTest {
 //        return jsonHead;
 //    }
 
+    private static void AutoReconnect(){
+        while (isDead=true){
+            final Handler mHandler = new Handler();
+            Runnable r = new Runnable() {
+                @Override
+                public void run() {
+                    init();
+                    Log.e("TAG", "AutoReconnect: "+"正在重连..." );
+                    //每隔3s循环执行run方法
+                    mHandler.postDelayed(this, 3000);
+                }
+            };
+            mHandler.postDelayed(r, 100);//延时100毫秒
+        }
+    }
     private final static class EchoWebSocketListener extends WebSocketListener {
         @Override
         public void onFailure(@NotNull WebSocket webSocket, @NotNull Throwable t, @Nullable Response response) {
@@ -106,6 +121,7 @@ public class WebSocketTest {
             Log.e("WebSocket", "Failure:" + t.getMessage());
 //            Toast.makeText(, "连接服务器失败", Toast.LENGTH_SHORT).show();
             isDead = true;
+            //AutoReconnect();
         }
 
         @Override

@@ -1,10 +1,12 @@
 package com.cq.xinyupintai.Presenter.activity;
 
+import android.Manifest;
 import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,6 +30,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
 
 import com.cq.xinyupintai.Presenter.WebSocketTest;
 import com.cq.xinyupintai.ui.Titanic.Titanic;
@@ -108,6 +112,7 @@ public class MainView extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        verifyStoragePermissions(this);
 
         wstest = WebSocketTest.getInstance();
 
@@ -407,5 +412,18 @@ public class MainView extends Activity implements View.OnClickListener {
         dialog.show();
 
     }
-
+    private  final int REQUEST_EXTERNAL_STORAGE = 1;
+    private  String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE };
+    public  void verifyStoragePermissions(Activity activity) {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(activity, PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE);
+        }
+    }
 }

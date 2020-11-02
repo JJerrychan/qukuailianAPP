@@ -1,14 +1,17 @@
 package com.cq.xinyupintai.Presenter.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -34,6 +37,13 @@ import com.smarttop.library.db.manager.AddressDictManager;
 import com.smarttop.library.widget.AddressSelector;
 import com.smarttop.library.widget.OnAddressSelectedListener;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 
 public class register extends Activity implements View.OnClickListener, OnAddressSelectedListener,
@@ -189,6 +199,38 @@ public class register extends Activity implements View.OnClickListener, OnAddres
         initView();
         initListener();
 
+
+        regPack.setReqCode("Z001002");
+        wstest.sendData(regPack);
+
+        RespondPackage addressRespond;
+        addressRespond = wstest.getRespondPackage();
+        if (addressRespond.getrespId() == 0) {
+            try {
+                File file = new File(Environment.getDataDirectory(),"ADDRESS");
+                file.setWritable(true);
+                FileWriter fw = new FileWriter(file);
+                fw.write(addressRespond.getdata().toString());
+                fw.close();
+                Log.e("TAG", "写入成功！");
+                FileReader fr = new FileReader("ADDRESS");
+                StringBuilder sb = new StringBuilder();
+                int read = fr.read();
+                // 能读取到字符
+                while (read != -1) {
+                    // 拼接字符串
+                    sb.append((char) read);
+                    // 读取下一个字符
+                    read = fr.read();
+                }
+                fr.close();
+                Log.e("json", sb.toString());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         textView = findViewById(R.id.tv_back);
         textView.setOnClickListener(new View.OnClickListener() {
