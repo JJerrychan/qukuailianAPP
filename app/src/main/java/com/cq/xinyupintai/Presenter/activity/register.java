@@ -207,13 +207,12 @@ public class register extends Activity implements View.OnClickListener, OnAddres
         addressRespond = wstest.getRespondPackage();
         if (addressRespond.getrespId() == 0) {
             try {
-                File file = new File(Environment.getDataDirectory(),"ADDRESS");
+                File file = new File(getFilesDir(),"ADDRESS");
                 file.setWritable(true);
                 FileWriter fw = new FileWriter(file);
                 fw.write(addressRespond.getdata().toString());
                 fw.close();
-                Log.e("TAG", "写入成功！");
-                FileReader fr = new FileReader("ADDRESS");
+                FileReader fr = new FileReader(file);
                 StringBuilder sb = new StringBuilder();
                 int read = fr.read();
                 // 能读取到字符

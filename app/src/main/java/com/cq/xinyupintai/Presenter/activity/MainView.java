@@ -47,36 +47,23 @@ import java.util.Map;
 
 public class MainView extends Activity implements View.OnClickListener {
 
+    private final int REQUEST_EXTERNAL_STORAGE = 1;
     private WebSocketTest wstest;
-
     private TextView register;
     private TextView forgetpass;
-
-
     private EditText editinput;
     private EditText etpassword;
-
     private ImageView inputclear;
     private ImageView password;
-
-
     private boolean isHideFirst = true;
-
-
     private Animbutton animbutton;
     private RelativeLayout layout;
     private Handler handler;
     private Animator animator;
-
-
     private RelativeLayout background;
-
     //测试 后期删除
     private TextView test;
-
     private TitanicTextView title;
-
-
     private TextWatcher textWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -105,6 +92,12 @@ public class MainView extends Activity implements View.OnClickListener {
 
         }
     };
+
+
+    // 跳转界面 动画设置
+    private String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     @SuppressLint({"ClickableViewAccessibility", "WrongViewCast", "WrongConstant"})
 
@@ -257,11 +250,14 @@ public class MainView extends Activity implements View.OnClickListener {
                                 break;
                             case 101://商家名或密码不正确
                                 Toast.makeText(MainView.this, "商家名或密码不正确!", Toast.LENGTH_SHORT).show();
+                                animbutton.stopAnim();
                                 break;
                             case 102://商家已登录
+                                animbutton.stopAnim();
                                 Toast.makeText(MainView.this, "不可重复登录," + LoginRespond.getMessage(), Toast.LENGTH_SHORT).show();
                                 break;
                             case 111://未知错误
+                                animbutton.stopAnim();
                                 Toast.makeText(MainView.this, "未知错误", Toast.LENGTH_SHORT).show();
                                 break;
                         }
@@ -282,9 +278,6 @@ public class MainView extends Activity implements View.OnClickListener {
         background.getBackground().mutate().setAlpha(160);
 
     }
-
-
-    // 跳转界面 动画设置
 
     private void gotoNew() {
         animbutton.gotoNew();
@@ -310,7 +303,8 @@ public class MainView extends Activity implements View.OnClickListener {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(intent);
+
+                            startActivity(intent);
                         //activity 页面跳转动画
                         // 注意：这个方法必须在startActivity/finish 后调用才会生效
 
@@ -336,6 +330,7 @@ public class MainView extends Activity implements View.OnClickListener {
             }
         });
         animator.start();
+
         layout.getBackground().setAlpha(255);
     }
 
@@ -346,7 +341,6 @@ public class MainView extends Activity implements View.OnClickListener {
         layout.getBackground().setAlpha(0);
         animbutton.regainBackground();
     }
-
 
     private void initview() {
 
@@ -386,7 +380,6 @@ public class MainView extends Activity implements View.OnClickListener {
         }
     }
 
-
     //设置忘记密码操作
     private void setDialog() {
 
@@ -412,11 +405,8 @@ public class MainView extends Activity implements View.OnClickListener {
         dialog.show();
 
     }
-    private  final int REQUEST_EXTERNAL_STORAGE = 1;
-    private  String[] PERMISSIONS_STORAGE = {
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE };
-    public  void verifyStoragePermissions(Activity activity) {
+
+    public void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE);
