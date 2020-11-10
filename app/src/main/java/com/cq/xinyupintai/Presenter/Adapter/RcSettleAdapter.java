@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cq.xinyupintai.Presenter.activity.EvaActivity;
 import com.cq.xinyupintai.R;
+import com.xuexiang.xui.widget.button.shadowbutton.ShadowButton;
 import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import java.util.List;
 public class RcSettleAdapter extends RecyclerView.Adapter<RcSettleAdapter.TextHolder> {
     private Context mContext;
     private List<Integer>texts ;
+
     public RcSettleAdapter(Context context,List<Integer> textInfo){
         mContext = context;
         texts=textInfo;
@@ -31,15 +33,19 @@ public class RcSettleAdapter extends RecyclerView.Adapter<RcSettleAdapter.TextHo
         return new TextHolder(view);
     }
     @Override
-    public void onBindViewHolder(TextHolder holder, int position) {                 //绑定数据
-        //后续获取数据需要修改此处
+    public void onBindViewHolder(final TextHolder holder, int position) {                 //绑定数据
+        holder.clean.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeItem(holder.getLayoutPosition());
+            }
+        });
 
     }
 
     public void addItem(int position) {
         texts.add(position);
         notifyItemInserted(position);//通知演示插入动画
-        notifyItemRangeChanged(position,texts.size()-position);//通知数据与界面重新绑定
     }
     public void removeItem(int position) {
         texts.remove(position);
@@ -55,11 +61,13 @@ public class RcSettleAdapter extends RecyclerView.Adapter<RcSettleAdapter.TextHo
         private MaterialEditText MetName;
         private MaterialEditText MetNumber;
         private MaterialEditText MetYuan;
+        private ShadowButton clean;
         public TextHolder(View itemView) {
             super(itemView);
             MetName=itemView.findViewById(R.id.ed_commdity_name);
             MetNumber=itemView.findViewById(R.id.ed_commdity_number);
             MetYuan=itemView.findViewById(R.id.ed_commdity_yuan);
+            clean=itemView.findViewById(R.id.sb_commdity_clean);
         }
         }
     }

@@ -15,6 +15,7 @@ import com.cq.xinyupintai.Presenter.Adapter.RcSettleAdapter;
 import com.cq.xinyupintai.Presenter.Adapter.UserEvaAdapter;
 import com.cq.xinyupintai.R;
 import com.xuexiang.xui.XUI;
+import com.xuexiang.xui.widget.button.shadowbutton.ShadowButton;
 import com.xuexiang.xui.widget.textview.supertextview.SuperButton;
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
@@ -40,7 +41,7 @@ public class settle_fragment extends Fragment {
         sTvAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myAdapter.addItem(1);
+                myAdapter.addItem(myAdapter.getItemCount());
             }
         });
     }

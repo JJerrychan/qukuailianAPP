@@ -39,7 +39,8 @@ public class ClosingStockActivity extends AppCompatActivity {
         Cs_rcv.setAdapter(new MyAdapter(ClosingStockActivity.this, TextInit()));
 
         mTitleBar=findViewById(R.id.title_bar_1);
-        mSearchView=findViewById(R.id.searchview_stock);mTitleBar.setLeftClickListener(new View.OnClickListener() {
+        mSearchView=findViewById(R.id.searchview_stock);
+        mTitleBar.setLeftClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ClosingStockActivity.this,StatisticsActivity.class);
