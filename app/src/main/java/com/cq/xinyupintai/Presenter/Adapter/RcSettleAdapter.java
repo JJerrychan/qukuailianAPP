@@ -2,6 +2,7 @@ package com.cq.xinyupintai.Presenter.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,17 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cq.xinyupintai.Presenter.activity.EvaActivity;
 import com.cq.xinyupintai.R;
+import com.cq.xinyupintai.data.model.checkout;
 import com.xuexiang.xui.widget.button.shadowbutton.ShadowButton;
 import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
+import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RcSettleAdapter extends RecyclerView.Adapter<RcSettleAdapter.TextHolder> {
     private Context mContext;
-    private List<Integer>texts ;
-
-    public RcSettleAdapter(Context context,List<Integer> textInfo){
+    private List<checkout>texts;
+    public RcSettleAdapter(Context context,List<checkout> textInfo){
         mContext = context;
         texts=textInfo;
     }
@@ -40,11 +42,13 @@ public class RcSettleAdapter extends RecyclerView.Adapter<RcSettleAdapter.TextHo
                 removeItem(holder.getLayoutPosition());
             }
         });
-
+        holder.setMetNameText(texts.get(position).getName());
+        holder.setMetNumberText(texts.get(position).getNumber());
+        holder.setMetYuanText(texts.get(position).getYuan());
     }
 
-    public void addItem(int position) {
-        texts.add(position);
+    public void addItem(int position,checkout data) {
+        texts.add(position,data);
         notifyItemInserted(position);//通知演示插入动画
     }
     public void removeItem(int position) {
@@ -68,6 +72,24 @@ public class RcSettleAdapter extends RecyclerView.Adapter<RcSettleAdapter.TextHo
             MetNumber=itemView.findViewById(R.id.ed_commdity_number);
             MetYuan=itemView.findViewById(R.id.ed_commdity_yuan);
             clean=itemView.findViewById(R.id.sb_commdity_clean);
+            MetName.setFocusable(false);
+            MetNumber.setFocusable(false);
+            MetYuan.setFocusable(false);
         }
+        public void setMetNameText(String MetNameText) {MetName.setText(MetNameText); }
+        public void setMetNumberText(String MetNumberText) {MetNumber.setText(MetNumberText); }
+        public void setMetYuanText(String MetYuanText) {MetYuan.setText(MetYuanText); }
         }
+
+    public List<checkout> getTexts() {
+        return texts;
     }
+    public String totalNumber(){
+        Integer totalNumber=texts.stream().mapToInt(e->{
+            int yuan=Integer.valueOf(e.getYuan());
+            int number=Integer.valueOf(e.getNumber());
+            return yuan*number;
+        }).sum();
+        return totalNumber.toString();
+    }
+}

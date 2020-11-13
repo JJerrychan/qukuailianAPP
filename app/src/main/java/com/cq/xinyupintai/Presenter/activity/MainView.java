@@ -259,6 +259,7 @@ public class MainView extends Activity implements View.OnClickListener {
                             case 111://未知错误
                                 animbutton.stopAnim();
                                 Toast.makeText(MainView.this, "未知错误", Toast.LENGTH_SHORT).show();
+                                gotoNew();
                                 break;
                         }
                     }

@@ -9,10 +9,12 @@ import android.widget.TextView;
 
 import com.cq.xinyupintai.R;
 import com.xuexiang.xui.XUI;
+import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xui.widget.textview.supertextview.SuperTextView;
 
 public class StatisticsActivity extends AppCompatActivity {
     private SuperTextView tvClosingStock;
+    private TitleBar mTitleBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         XUI.initTheme(this);
@@ -24,6 +26,16 @@ public class StatisticsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(StatisticsActivity.this,ClosingStockActivity.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+        mTitleBar=findViewById(R.id.bar_1);
+        mTitleBar.setLeftClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(StatisticsActivity.this,BossActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    app:cardElevation="18dp"
+    android:layout_centerInParent="true"
+    app:cardCornerRadius="10dp"
+    app:contentPadding="10dp"
+    android:layout_gravity="center">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/LL_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="消费项目" />
+
+            <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
+                android:id="@+id/ed_commdity_name"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:enabled="true"
+                android:hint="消费项目"
+                android:textColor="#212121"
+                app:met_floatingLabel="normal"
+                app:met_floatingLabelAnimating="true"
+                app:met_floatingLabelText="项目名称"
+                app:met_floatingLabelTextColor="#F8F8FF"
+                app:met_textColorHint="#F8F8FF"
+                app:met_underlineColor="#00796B" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/mb_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="确认"
+                android:textColor="#1e88e5"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:theme="@style/Theme.MaterialComponents.Light"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LL_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LL_5">
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/ed_commdity_number"
+                android:text="数量" />
+
+            <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
+                android:id="@+id/ed_commdity_number"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:enabled="true"
+                android:hint="数量"
+                android:textColor="#212121"
+                app:met_floatingLabel="normal"
+                app:met_floatingLabelAnimating="true"
+                app:met_floatingLabelText="数量"
+                app:met_floatingLabelTextColor="#F8F8FF"
+                app:met_textColorHint="#F8F8FF"
+                app:met_underlineColor="#00796B" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/LL_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LL_5"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/LL_6">
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:text="单价" />
+
+            <com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText
+                android:id="@+id/ed_commdity_yuan"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:hint="单价"
+                android:textColor="#212121"
+                app:met_floatingLabel="normal"
+                app:met_floatingLabelAnimating="true"
+                app:met_floatingLabelText="单价"
+                app:met_floatingLabelTextColor="#F8F8FF"
+                app:met_textColorHint="	#F8F8FF"
+                app:met_underlineColor="#00796B" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -45,6 +45,7 @@ public class ClosingStockActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(ClosingStockActivity.this,StatisticsActivity.class);
                 startActivity(intent);
+                finish();
             }
         }).addAction(new TitleBar.ImageAction(R.mipmap.search) {
             @Override
