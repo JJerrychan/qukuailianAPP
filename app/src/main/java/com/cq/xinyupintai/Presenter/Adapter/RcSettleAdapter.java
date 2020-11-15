@@ -35,13 +35,7 @@ public class RcSettleAdapter extends RecyclerView.Adapter<RcSettleAdapter.TextHo
         return new TextHolder(view);
     }
     @Override
-    public void onBindViewHolder(final TextHolder holder, int position) {                 //绑定数据
-        holder.clean.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                removeItem(holder.getLayoutPosition());
-            }
-        });
+    public void onBindViewHolder(TextHolder holder, int position) {                 //绑定数据
         holder.setMetNameText(texts.get(position).getName());
         holder.setMetNumberText(texts.get(position).getNumber());
         holder.setMetYuanText(texts.get(position).getYuan());
@@ -54,6 +48,7 @@ public class RcSettleAdapter extends RecyclerView.Adapter<RcSettleAdapter.TextHo
     public void removeItem(int position) {
         texts.remove(position);
         notifyItemRemoved(position);
+        notifyDataSetChanged();
     }
     @Override
     public int getItemCount() {
@@ -61,7 +56,18 @@ public class RcSettleAdapter extends RecyclerView.Adapter<RcSettleAdapter.TextHo
         return texts.size();
     }
 
-    public static class TextHolder extends RecyclerView.ViewHolder{
+    public interface OnItemClickListener  {
+        void onItemClick(View v, int position);
+        void onItemLongClick(View v);
+    }
+    public OnItemClickListener mOnItemClickListener;//第二步：声明自定义的接口
+
+    //第三步：定义方法并暴露给外面的调用者
+    public void setOnItemClickListener(OnItemClickListener  listener) {
+        this.mOnItemClickListener  = listener;
+    }
+
+    public class TextHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private MaterialEditText MetName;
         private MaterialEditText MetNumber;
         private MaterialEditText MetYuan;
@@ -75,11 +81,19 @@ public class RcSettleAdapter extends RecyclerView.Adapter<RcSettleAdapter.TextHo
             MetName.setFocusable(false);
             MetNumber.setFocusable(false);
             MetYuan.setFocusable(false);
+            clean.setOnClickListener(this);
         }
         public void setMetNameText(String MetNameText) {MetName.setText(MetNameText); }
         public void setMetNumberText(String MetNumberText) {MetNumber.setText(MetNumberText); }
         public void setMetYuanText(String MetYuanText) {MetYuan.setText(MetYuanText); }
+
+        @Override
+        public void onClick(View v) {
+            if (mOnItemClickListener != null) {
+                mOnItemClickListener.onItemClick(v, getAdapterPosition());
+            }
         }
+    }
 
     public List<checkout> getTexts() {
         return texts;

@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import androidx.annotation.NonNull;
@@ -80,22 +83,36 @@ public class settle_fragment extends Fragment {
                 mCirclePop.showAtLocation(getView(), Gravity.BOTTOM, 0, 0);
             }
         });
-        MaterialEditText Met1=mCirclePop.getView(R.id.ed_commdity_name);
-        MaterialEditText Met2=mCirclePop.getView(R.id.ed_commdity_number);
-        MaterialEditText Met3=mCirclePop.getView(R.id.ed_commdity_yuan);
-        materialEditText=view.findViewById(R.id.ed_settle_money);
+        MaterialEditText Met1 = mCirclePop.getView(R.id.ed_commdity_name);
+        MaterialEditText Met2 = mCirclePop.getView(R.id.ed_commdity_number);
+        MaterialEditText Met3 = mCirclePop.getView(R.id.ed_commdity_yuan);
+        materialEditText = view.findViewById(R.id.ed_settle_money);
         materialEditText.setFocusable(false);
-        Button mbSure=mCirclePop.getView(R.id.mb_1);
+        Button mbSure = mCirclePop.getView(R.id.mb_1);
         mbSure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                data=new checkout(Met1.getText().toString(),Met2.getText().toString(),Met3.getText().toString());
-                myAdapter.addItem(myAdapter.getItemCount(),data);
+                data = new checkout(Met1.getText().toString(), Met2.getText().toString(), Met3.getText().toString());
+                myAdapter.addItem(myAdapter.getItemCount(), data);
                 materialEditText.setText(myAdapter.totalNumber());
                 mCirclePop.onDismiss();
             }
         });
+        myAdapter.setOnItemClickListener(new RcSettleAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                if(v.getId()==R.id.sb_commdity_clean){
+                    myAdapter.removeItem(position);
+                    String text=myAdapter.totalNumber();
+                    materialEditText.setText(text);
+                }
+            }
 
+            @Override
+            public void onItemLongClick(View v) {
+
+            }
+        });
     }
 
     private ArrayList<checkout> initData() {
