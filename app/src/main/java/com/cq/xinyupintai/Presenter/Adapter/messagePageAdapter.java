@@ -13,12 +13,10 @@ import com.cq.xinyupintai.Presenter.fragment.boss_message_fragment;
 import com.cq.xinyupintai.data.model.RequestPackage;
 import com.cq.xinyupintai.data.model.RespondPackage;
 
-public class messagePageAdapter extends FragmentPagerAdapter {
-    private WebSocketTest wstest = WebSocketTest.getInstance();
-    private RequestPackage messagePageReq =new RequestPackage();
-    private RespondPackage messagePageRsp =new RespondPackage();
-    private Context mContext;
+import static com.cq.xinyupintai.Presenter.WebSocketTest.buildRequestParams;
 
+public class messagePageAdapter extends FragmentPagerAdapter {
+    private Context mContext;
     public messagePageAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
@@ -26,9 +24,7 @@ public class messagePageAdapter extends FragmentPagerAdapter {
 
     public messagePageAdapter(FragmentManager supportFragmentManager, int tabCount) {
         super(supportFragmentManager, tabCount);
-        messagePageReq.setReqCode("B003001");
-        wstest.sendData(messagePageReq);
-        messagePageRsp = wstest.getRespondPackage();
+
     }
 
     @Override

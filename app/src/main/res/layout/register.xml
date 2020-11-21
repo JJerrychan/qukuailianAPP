@@ -270,7 +270,7 @@
                     android:id="@+id/bankid"
                     android:layout_width="wrap_content"
                     android:layout_height="40sp"
-                    android:text="银行账号"
+                    android:text="身份证号"
                     android:textSize="16sp"
                     android:gravity="center"
                     android:textColor="@color/colorregister" />

@@ -2,7 +2,9 @@ package com.cq.xinyupintai.Presenter;
 
 import android.content.Context;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+import android.view.View;
 
 import com.cq.xinyupintai.data.model.RequestPackage;
 import com.cq.xinyupintai.data.model.RespondPackage;
@@ -20,12 +22,28 @@ import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 import okio.ByteString;
 
-public class WebSocketTest {
+public class WebSocketTest extends WebSocketListener {
+    public enum WsStatus {
+
+        /**
+         * 发送成功
+         */
+        CONNECT_SUCCESS,
+        /**
+         * 发送失败
+         */
+        CONNECT_FAIL,
+        /**
+         * 正在发送
+         */
+        CONNECTING;
+    }
 
     private static volatile WebSocketTest WsInstance = null;//WS实例
     private static Boolean isDead = true;
     private static Gson gson = new Gson();
     private static WebSocket mSocket;
+    private static int mCurrentStatus = WsStatus.CONNECT_FAIL.ordinal();//连接状态
     private static RespondPackage respondPackage = new RespondPackage();
     // 每隔2秒发送一次心跳包，检测连接没有断开
 //    private static final long HEART_BEAT_RATE = 2 * 1000;
@@ -87,6 +105,7 @@ public class WebSocketTest {
         Boolean result = mSocket.send(jsonHead);
         if (result)
             Log.v("websocket", "发送成功！");
+        mCurrentStatus=WsStatus.CONNECTING.ordinal();
         return result;
     }
 
@@ -114,13 +133,14 @@ public class WebSocketTest {
             mHandler.postDelayed(r, 100);//延时100毫秒
         }
     }
-    private final static class EchoWebSocketListener extends WebSocketListener {
+    private static final class EchoWebSocketListener extends WebSocketListener {
         @Override
         public void onFailure(@NotNull WebSocket webSocket, @NotNull Throwable t, @Nullable Response response) {
             super.onFailure(webSocket, t, response);
             Log.e("WebSocket", "Failure:" + t.getMessage());
 //            Toast.makeText(, "连接服务器失败", Toast.LENGTH_SHORT).show();
             isDead = true;
+            mCurrentStatus=WsStatus.CONNECT_FAIL.ordinal();
             //AutoReconnect();
         }
 
@@ -142,6 +162,7 @@ public class WebSocketTest {
             super.onMessage(webSocket, text);
             Log.e("WebSocket", "Message:" + text);
             respondPackage = gson.fromJson(text, RespondPackage.class);
+            mCurrentStatus=WsStatus.CONNECT_SUCCESS.ordinal();
         }
 
         @Override
@@ -157,5 +178,8 @@ public class WebSocketTest {
             Log.e("WebSocket", "连接成功!");
             isDead = false;
         }
+    }
+    public static int getmCurrentStatus() {
+        return mCurrentStatus;
     }
 }

@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -42,6 +43,7 @@ import com.cq.xinyupintai.data.model.RequestPackage;
 import com.cq.xinyupintai.data.model.RespondPackage;
 import com.cq.xinyupintai.data.model.Staff;
 import com.cq.xinyupintai.ui.Animbutton;
+import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
 
 import java.util.Map;
 
@@ -107,7 +109,7 @@ public class MainView extends Activity implements View.OnClickListener {
         setContentView(R.layout.main);
         verifyStoragePermissions(this);
 
-        wstest = WebSocketTest.getInstance();
+        wstest = WebSocketTest.getInstance();//获取websocket实例
 
         initview();
         initListerner();
@@ -124,9 +126,7 @@ public class MainView extends Activity implements View.OnClickListener {
                     AbsoluteSizeSpan absoluteSizeSpan1 = new AbsoluteSizeSpan(13, true);
                     spannableString1.setSpan(absoluteSizeSpan1, 0, spannableString1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     editinput.setHint(new SpannableString(spannableString1));
-
-
-                }
+            }
             }
         });
 
@@ -229,6 +229,7 @@ public class MainView extends Activity implements View.OnClickListener {
                 Staff staff = new Staff();
                 staff.setLogin_name(editinput.getText().toString());
                 staff.setPassword_hash(etpassword.getText().toString());
+                hideSoftKeyboard(MainView.this);
                 try {
                     Map<String, Object> map = Object2Map.Obj2Map(staff);
                     LoginRequest.setData(map);
@@ -279,7 +280,13 @@ public class MainView extends Activity implements View.OnClickListener {
         background.getBackground().mutate().setAlpha(160);
 
     }
-
+    public void hideSoftKeyboard(Activity activity) {
+        View view = activity.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
     private void gotoNew() {
         animbutton.gotoNew();
 
@@ -304,7 +311,9 @@ public class MainView extends Activity implements View.OnClickListener {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-
+                            RequestPackage bossHomeReq =new RequestPackage();
+                            bossHomeReq.setReqCode("B003001");
+                            wstest.sendData(bossHomeReq);
                             startActivity(intent);
                         //activity 页面跳转动画
                         // 注意：这个方法必须在startActivity/finish 后调用才会生效

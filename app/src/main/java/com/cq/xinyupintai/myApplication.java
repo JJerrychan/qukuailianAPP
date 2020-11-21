@@ -6,6 +6,8 @@ import android.content.Context;
 import com.cq.xinyupintai.Presenter.WebSocketTest;
 import com.xuexiang.xui.XUI;
 
+import okhttp3.WebSocket;
+
 public class myApplication extends Application {
     private static Context mContext;
 
@@ -16,7 +18,7 @@ public class myApplication extends Application {
         XUI.init(this); //初始化UI框架
         XUI.debug(true);  //开启UI框架调试日志
         mContext = getApplicationContext();
-        WebSocketTest.init();   //初始化WebSocket
+        WebSocketTest.init();
     }
 }
 

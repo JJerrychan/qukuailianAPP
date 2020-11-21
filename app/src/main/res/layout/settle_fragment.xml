@@ -89,26 +89,27 @@
     </LinearLayout>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         app:cardBackgroundColor="#FFFF"
         app:cardCornerRadius="3dp"
         app:cardElevation="1dp"
         android:layout_below="@+id/LL_4"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        app:contentPadding="5dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <com.xuexiang.xui.widget.textview.supertextview.SuperTextView
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/stv_settle_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 app:sLeftTopTextString="顾客姓名："
                 app:sCenterTopTextString="wang"
                 app:sLeftTextString="顾客手机号："
                 app:sCenterTextString="13245357468"
-                app:sLeftBottomTextString="已完成支付"
                 app:sLeftViewGravity="left_center"
                 app:sCenterViewGravity="right_center"
                 app:sDividerLineType="none"
@@ -117,17 +118,14 @@
                 android:id="@+id/btn_settle_1"
                 android:layout_width="60dp"
                 android:layout_height="30dp"
+                android:layout_marginTop="8dp"
                 android:text="已支付"
                 style="@style/ButtonView.Blue"
                 app:textRadius="3dp"
                 android:layout_below="@+id/stv_settle_1"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:layout_alignParentRight="true"/>
         </RelativeLayout>
-
-
-
     </androidx.cardview.widget.CardView>
 </RelativeLayout>
 

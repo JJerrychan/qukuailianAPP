@@ -21,7 +21,8 @@ public class Organization extends User {
     private String Photo;           //图片
     private String Account;         //收款账户
     private String Account_name;    //银行账户名称
-    private String Bankname;        //开户银行
+    private String Bankname;//开户银行
+
 
     public int getOrg_id() {
         return Org_id;

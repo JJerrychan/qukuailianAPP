@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cq.xinyupintai.Presenter.activity.StatisticsActivity;
 import com.cq.xinyupintai.R;
+import com.cq.xinyupintai.data.model.statistic;
 
 import java.util.List;
-
 public class RcBossHomeAdapter extends RecyclerView.Adapter<RcBossHomeAdapter.TextHolder> {
     private Context mContext;
-    private List<String> texts;
-    public RcBossHomeAdapter(Context context, List<String> textInfo){
+    private List<statistic> texts;
+    public RcBossHomeAdapter(Context context, List<statistic> textInfo){
         mContext = context;
         texts = textInfo;
     }
@@ -31,9 +31,8 @@ public class RcBossHomeAdapter extends RecyclerView.Adapter<RcBossHomeAdapter.Te
     @Override
     public void onBindViewHolder(TextHolder holder, int position) {                 //绑定数据
         //后续获取数据需要修改此处
-        String mtext = texts.get(position);
-        holder.setnameText(mtext);
-        holder.setdataText("1000");
+        holder.setnameText(texts.get(position).getName());
+        holder.setdataText(texts.get(position).getNumber());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

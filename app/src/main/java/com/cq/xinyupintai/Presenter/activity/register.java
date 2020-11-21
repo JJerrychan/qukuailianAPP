@@ -477,20 +477,20 @@ public class register extends Activity implements View.OnClickListener, OnAddres
                 editText_10.setText("");
                 break;
             case R.id.submit_btn:
+
                 regPack.setReqCode("B002001");
-                organization.setLogin_name("test1");
-                organization.setPassword_hash("test");
-                organization.setOrg_name("newtest公司");
-                organization.setUnit_code("002001");
+                organization.setLogin_name(editText_1.getText().toString());
+                organization.setPassword_hash(editText_2.getText().toString());
+                organization.setOrg_name(editText_4.getText().toString());
+                organization.setUnit_code(editText_5.getText().toString());
                 organization.setProvince_id("广东");
                 organization.setCity_id("珠海");
                 organization.setDistrict_id("香洲");
                 organization.setStreet("前山街道");
                 organization.setRoad("梅华路");
                 organization.setDoor("100号");
-                organization.setPhone("13765515315");
-                organization.setDirector("test1");
-
+                organization.setPhone(editText_8.getText().toString());
+                organization.setDirector(editText_7.getText().toString());
                 try {
                     Map<String, Object> map = (Map<String, Object>) Object2Map.Obj2Map(organization);
                     map.put("Identity_no", "123456");
