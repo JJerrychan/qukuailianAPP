@@ -22,7 +22,7 @@ import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 import okio.ByteString;
 
-public class WebSocketTest extends WebSocketListener {
+public class WebSocketTest  {
     public enum WsStatus {
 
         /**

@@ -17,6 +17,7 @@ import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.text.style.AbsoluteSizeSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -222,53 +223,59 @@ public class MainView extends Activity implements View.OnClickListener {
         animbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //登录逻辑
-                RequestPackage LoginRequest = new RequestPackage();
-                LoginRequest.setReqCode("B001001");
-                Staff staff = new Staff();
-                staff.setLogin_name(editinput.getText().toString());
-                staff.setPassword_hash(etpassword.getText().toString());
-                hideSoftKeyboard(MainView.this);
-                try {
-                    Map<String, Object> map = Object2Map.Obj2Map(staff);
-                    LoginRequest.setData(map);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                wstest.sendData(LoginRequest);
-
                 animbutton.startAnim();
-
-                handler.postDelayed(new Runnable() {
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        RespondPackage LoginRespond = wstest.getRespondPackage();
-                        switch (LoginRespond.getrespId()) {
-                            case 0://登陆成功
-                                //跳转
-                                gotoNew();
-                                break;
-                            case 101://商家名或密码不正确
-                                Toast.makeText(MainView.this, "商家名或密码不正确!", Toast.LENGTH_SHORT).show();
-                                animbutton.stopAnim();
-                                break;
-                            case 102://商家已登录
-                                animbutton.stopAnim();
-                                Toast.makeText(MainView.this, "不可重复登录," + LoginRespond.getMessage(), Toast.LENGTH_SHORT).show();
-                                break;
-                            case 111://未知错误
-                                animbutton.stopAnim();
-                                Toast.makeText(MainView.this, "未知错误", Toast.LENGTH_SHORT).show();
-                                gotoNew();
-                                break;
-                        }
+                        try {
+                            RequestPackage LoginRequest = new RequestPackage();
+                            LoginRequest.setReqCode("B001001");
+                            Staff staff = new Staff();
+                            staff.setLogin_name(editinput.getText().toString());
+                            staff.setPassword_hash(etpassword.getText().toString());
+                            hideSoftKeyboard(MainView.this);
+                            try {
+                                Map<String, Object> map = Object2Map.Obj2Map(staff);
+                                LoginRequest.setData(map);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            wstest.sendData(LoginRequest);
+                            //等待信息返回
+                            while (WebSocketTest.getmCurrentStatus()==2){
+                                Thread.sleep(1000);
+                                Log.e("test","sleep完成");
+                            }
+                            handler.postDelayed(() -> {
+                    RespondPackage LoginRespond = wstest.getRespondPackage();
+                    switch (LoginRespond.getrespId()) {
+                        case 0://登陆成功
+                            //跳转
+                            gotoNew();
+                            break;
+                        case 101://商家名或密码不正确
+                            Toast.makeText(MainView.this, "商家名或密码不正确!", Toast.LENGTH_SHORT).show();
+                            animbutton.stopAnim();
+                            break;
+                        case 102://商家已登录
+                            animbutton.stopAnim();
+                            Toast.makeText(MainView.this, "不可重复登录," + LoginRespond.getMessage(), Toast.LENGTH_SHORT).show();
+                            break;
+                        case 111://未知错误
+                            animbutton.stopAnim();
+                            Toast.makeText(MainView.this, "未知错误", Toast.LENGTH_SHORT).show();
+                            gotoNew();
+                            break;
                     }
                 }, 3000);
-
+                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
             }
         });
-
         title = findViewById(R.id.id_hello);
 
         //字体设置

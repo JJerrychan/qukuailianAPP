@@ -54,8 +54,6 @@ public class boss_home_fragment extends Fragment  {
         viewPager.setAdapter(new messagePageAdapter(getChildFragmentManager(), tabLayout1.getTabCount()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout1));
         tabLayout1.setupWithViewPager(viewPager);
-//        datarespond=wstest.getRespondPackage();
-//        Log.e("boss",datarespond.getdata().toString());
     }
 
     private List<statistic> Datainit() {
@@ -63,8 +61,8 @@ public class boss_home_fragment extends Fragment  {
         datarespond=wstest.getRespondPackage();
         if(WebSocketTest.getmCurrentStatus()==0){
             data.add(new statistic("日收入",datarespond.getdata().get("Income_d").toString()));
-            data.add(new statistic("月收入",datarespond.getdata().get("Income_m").toString()));
-            data.add(new statistic("年收入",datarespond.getdata().get("Income_y").toString()));
+            data.add(new statistic("使用人数",datarespond.getdata().get("Income_m").toString()));
+            data.add(new statistic("售出数",datarespond.getdata().get("Income_y").toString()));
         }
         else{
             data.add(new statistic("日收入","100"));
