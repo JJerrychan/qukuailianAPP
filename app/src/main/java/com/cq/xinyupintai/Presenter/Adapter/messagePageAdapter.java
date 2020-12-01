@@ -12,9 +12,6 @@ import com.cq.xinyupintai.Presenter.fragment.User_eva_fragment;
 import com.cq.xinyupintai.Presenter.fragment.boss_message_fragment;
 import com.cq.xinyupintai.data.model.RequestPackage;
 import com.cq.xinyupintai.data.model.RespondPackage;
-
-import static com.cq.xinyupintai.Presenter.WebSocketTest.buildRequestParams;
-
 public class messagePageAdapter extends FragmentPagerAdapter {
     private Context mContext;
     public messagePageAdapter(Context context, FragmentManager fm) {

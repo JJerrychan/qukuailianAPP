@@ -46,6 +46,14 @@ public class RcBossHomeAdapter extends RecyclerView.Adapter<RcBossHomeAdapter.Te
         return texts.size();
     }
 
+    public void changeItem(statistic mstatistic1,statistic mstatistic2,statistic mstatistic3){
+        texts.clear();
+        texts.add(mstatistic1);
+        texts.add(mstatistic2);
+        texts.add(mstatistic3);
+        notifyDataSetChanged();
+    }
+
     public static class TextHolder extends RecyclerView.ViewHolder{
         private TextView name;
         private TextView data;

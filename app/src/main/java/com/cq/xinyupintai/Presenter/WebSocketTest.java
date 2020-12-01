@@ -3,8 +3,11 @@ package com.cq.xinyupintai.Presenter;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import com.cq.xinyupintai.data.model.RequestPackage;
 import com.cq.xinyupintai.data.model.RespondPackage;
@@ -39,16 +42,33 @@ public class WebSocketTest  {
         CONNECTING;
     }
 
-    private static volatile WebSocketTest WsInstance = null;//WS实例
+    private volatile static WebSocketTest WsInstance = null;//WS实例
     private static Boolean isDead = true;
-    private static Gson gson = new Gson();
+    private Gson gson = new Gson();
     private static WebSocket mSocket;
-    private static int mCurrentStatus = WsStatus.CONNECT_FAIL.ordinal();//连接状态
+    private int mCurrentStatus = WsStatus.CONNECT_FAIL.ordinal();//连接状态
     private static RespondPackage respondPackage = new RespondPackage();
+    private ServerListener mserverlistener;
+    private Handler messagehander;
     // 每隔2秒发送一次心跳包，检测连接没有断开
 //    private static final long HEART_BEAT_RATE = 2 * 1000;
 //    private long sendTime = 0L;
     private Handler mHandler = new Handler();
+
+    //定义监听者接口
+    public interface ServerListener {
+        void onNewMessage(RespondPackage respond);
+    }
+    
+    //设置监听者
+    public void setServerListener(ServerListener mserverlistener){
+        this.mserverlistener=mserverlistener;
+        messagehander = new Handler(msg -> {
+            respondPackage = gson.fromJson(String.valueOf(msg.obj), RespondPackage.class);
+            mserverlistener.onNewMessage(respondPackage);
+            return true;
+        });
+    }
 
     //获取Ws实例
     public static WebSocketTest getInstance() {
@@ -62,25 +82,24 @@ public class WebSocketTest  {
         return WsInstance;
     }
 
-    public static String buildRequestParams(Object params) {
+    public String buildRequestParams(Object params) {
         String jsonStr = gson.toJson(params);
         return jsonStr;
     }
 
-    public static void init() {
+    public void init() {
         OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
                 .readTimeout(3, TimeUnit.SECONDS)//设置读取超时时间
                 .writeTimeout(3, TimeUnit.SECONDS)//设置写的超时时间
                 .connectTimeout(3, TimeUnit.SECONDS)//设置连接超时时间
                 .build();
         Request request = new Request.Builder().url("ws://172.16.16.59:8888/cenyou").build();
-        EchoWebSocketListener socketListener = new EchoWebSocketListener();
         // 刚进入界面，就开启心跳检测
         // mHandler.postDelayed(heartBeatRunnable, HEART_BEAT_RATE);
-        mSocket = mOkHttpClient.newWebSocket(request, socketListener);
-
+        mSocket = mOkHttpClient.newWebSocket(request,new EchoWebSocketListener());
         mOkHttpClient.dispatcher().executorService().shutdown();
     }
+
 // 发送心跳包
 //    private Runnable heartBeatRunnable = new Runnable() {
 //        @Override
@@ -94,21 +113,16 @@ public class WebSocketTest  {
 //        }
 //    };
 
-    public RespondPackage getRespondPackage() {
-        return respondPackage;
-    }
-
-    public Boolean sendData(RequestPackage requestP) {
+    public boolean sendData(RequestPackage requestP) {
         String jsonHead = "";
         jsonHead = buildRequestParams(requestP);
         Log.e("TAG", "sendData: " + jsonHead);
-        Boolean result = mSocket.send(jsonHead);
+        boolean result = mSocket.send(jsonHead);
         if (result)
             Log.v("websocket", "发送成功！");
         mCurrentStatus=WsStatus.CONNECTING.ordinal();
         return result;
     }
-
 //    private String sendHeart() {
 //        String jsonHead = "";
 //        Map<String, Object> mapHead = new HashMap<>();
@@ -118,22 +132,22 @@ public class WebSocketTest  {
 //        return jsonHead;
 //    }
 
-    private static void AutoReconnect(){
-        while (isDead=true){
-            final Handler mHandler = new Handler();
-            Runnable r = new Runnable() {
-                @Override
-                public void run() {
-                    init();
-                    Log.e("TAG", "AutoReconnect: "+"正在重连..." );
-                    //每隔3s循环执行run方法
-                    mHandler.postDelayed(this, 3000);
-                }
-            };
-            mHandler.postDelayed(r, 100);//延时100毫秒
-        }
-    }
-    private static final class EchoWebSocketListener extends WebSocketListener {
+//    private static void AutoReconnect(){
+//        while (isDead=true){
+//            final Handler mHandler = new Handler();
+//            Runnable r = new Runnable() {
+//                @Override
+//                public void run() {
+//                    init();
+//                    Log.e("TAG", "AutoReconnect: "+"正在重连..." );
+//                    //每隔3s循环执行run方法
+//                    mHandler.postDelayed(this, 3000);
+//                }
+//            };
+//            mHandler.postDelayed(r, 100);//延时100毫秒
+//        }
+//    }
+    private  class EchoWebSocketListener extends WebSocketListener {
         @Override
         public void onFailure(@NotNull WebSocket webSocket, @NotNull Throwable t, @Nullable Response response) {
             super.onFailure(webSocket, t, response);
@@ -161,8 +175,9 @@ public class WebSocketTest  {
         public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
             super.onMessage(webSocket, text);
             Log.e("WebSocket", "Message:" + text);
-            respondPackage = gson.fromJson(text, RespondPackage.class);
             mCurrentStatus=WsStatus.CONNECT_SUCCESS.ordinal();
+            Message m = messagehander.obtainMessage(0, text);
+            messagehander.sendMessage(m);
         }
 
         @Override
@@ -179,7 +194,7 @@ public class WebSocketTest  {
             isDead = false;
         }
     }
-    public static int getmCurrentStatus() {
+    public int getmCurrentStatus() {
         return mCurrentStatus;
     }
 }

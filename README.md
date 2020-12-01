@@ -42,7 +42,7 @@
         	        "LoginName": "Zhangsan",
                     "Password": "123456"
             	}
-### websocket说明
+### 新websocket说明
 
     1. /Presenter/WebSocketTest.java 存放了所有WebSocket的操作方法，WebSocket连接服务器已经在Application的onCreate（）进行了初始化，会在Logcat里输出是否连接成功，如果不成功请联系后台。
     
@@ -61,10 +61,9 @@
         e)	wstest.sendData(LoginRequest);
     //调用sendData()方法，参数是请求包，即可向后台发送请求数据	
     
-        f)	RespondPackage LoginPackage = wstest. getRespondPackage();
-    //定义一个回应包，调用getRespondPackage()方法并赋值
+        f)	** 调用wstest.setServerListener设置监听者，实现ServerListener接口**
     
-        g)	通过调用回应包里的各种get方法即可得到所需数据
+        g)	** 通过实现接口中的方法，来获取RespondPackage **
     
     3. Map和Object的互相转换？
     

@@ -44,6 +44,7 @@ import com.cq.xinyupintai.data.model.RequestPackage;
 import com.cq.xinyupintai.data.model.RespondPackage;
 import com.cq.xinyupintai.data.model.Staff;
 import com.cq.xinyupintai.ui.Animbutton;
+import com.google.gson.Gson;
 import com.xuexiang.xui.widget.edittext.materialedittext.MaterialEditText;
 
 import java.util.Map;
@@ -64,6 +65,9 @@ public class MainView extends Activity implements View.OnClickListener {
     private Handler handler;
     private Animator animator;
     private RelativeLayout background;
+    private WebSocketTest.ServerListener mServerListener;
+    private RespondPackage LoginRespond;
+    private Gson gson = new Gson();
     //测试 后期删除
     private TextView test;
     private TitanicTextView title;
@@ -110,7 +114,7 @@ public class MainView extends Activity implements View.OnClickListener {
         setContentView(R.layout.main);
         verifyStoragePermissions(this);
 
-        wstest = WebSocketTest.getInstance();//获取websocket实例
+
 
         initview();
         initListerner();
@@ -219,6 +223,14 @@ public class MainView extends Activity implements View.OnClickListener {
         layout = findViewById(R.id.MainView);
 
         layout.getBackground().setAlpha(0);
+
+        wstest = WebSocketTest.getInstance();//获取websocket实例
+        wstest.setServerListener(new WebSocketTest.ServerListener() {
+            @Override
+            public void onNewMessage(RespondPackage respond) {
+                LoginRespond=respond;
+            }
+        });
         handler = new Handler();
         animbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -242,12 +254,12 @@ public class MainView extends Activity implements View.OnClickListener {
                             }
                             wstest.sendData(LoginRequest);
                             //等待信息返回
-                            while (WebSocketTest.getmCurrentStatus()==2){
+                            while (wstest.getmCurrentStatus()==2){
                                 Thread.sleep(1000);
                                 Log.e("test","sleep完成");
                             }
                             handler.postDelayed(() -> {
-                    RespondPackage LoginRespond = wstest.getRespondPackage();
+//                    RespondPackage LoginRespond = wstest.getRespondPackage();
                     switch (LoginRespond.getrespId()) {
                         case 0://登陆成功
                             //跳转
@@ -277,7 +289,6 @@ public class MainView extends Activity implements View.OnClickListener {
             }
         });
         title = findViewById(R.id.id_hello);
-
         //字体设置
 //        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/myfont.ttf");
 //        title.setTypeface(typeface);
@@ -317,10 +328,10 @@ public class MainView extends Activity implements View.OnClickListener {
             public void onAnimationStart(Animator animation) {
                 handler.postDelayed(new Runnable() {
                     @Override
-                    public void run() {
-                            RequestPackage bossHomeReq =new RequestPackage();
-                            bossHomeReq.setReqCode("B003001");
-                            wstest.sendData(bossHomeReq);
+                    public void run(){
+//                            RequestPackage bossHomeReq =new RequestPackage();
+//                            bossHomeReq.setReqCode("B003001");
+//                            wstest.sendData(bossHomeReq);
                             startActivity(intent);
                         //activity 页面跳转动画
                         // 注意：这个方法必须在startActivity/finish 后调用才会生效
@@ -408,15 +419,12 @@ public class MainView extends Activity implements View.OnClickListener {
         dialog.setContentView(root);
         Window dialogwindow = dialog.getWindow();
         dialogwindow.setGravity(Gravity.BOTTOM);
-
-
         WindowManager.LayoutParams lp = dialogwindow.getAttributes();// 获取对话框当前的参数值
         lp.x = 0; // 新位置X坐标
         lp.y = 0; // 新位置Y坐标
         lp.width = (int) getResources().getDisplayMetrics().widthPixels; // 宽度
         root.measure(0, 0);
         lp.height = root.getMeasuredHeight();
-
 //        lp.alpha = 9f; // 透明度
         dialogwindow.setAttributes(lp);
         dialog.show();
